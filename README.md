@@ -5,14 +5,19 @@ Laporan Studi Lapangan Kinerja Organisasi, Pelatihan Kepemimpinan Administrator 
 ## Isi folder
 
 ```
-index.html                  halaman laporan (satu halaman, tanpa dependensi eksternal)
-assets/pandawa-hero.jpg     foto latar hero
-assets/pandawa-karang.jpg   foto tebing kapur Pantai Pandawa
-assets/pandawa-sign.jpg     foto papan nama kawasan wisata
-assets/pandawa-sunset.jpg   foto senja di Pantai Pandawa
+index.html                          halaman laporan (satu halaman, tanpa dependensi eksternal)
+assets/                             foto tetap yang dipakai hero dan profil lokus
+dokumentasi/daftar-foto.json        daftar foto dokumentasi kunjungan
+dokumentasi/CARA-MENAMBAH-FOTO.md   panduan menambah foto bagi anggota kelompok
 ```
 
 Halaman tidak memuat font, skrip, atau gambar dari server luar, sehingga dapat dibuka langsung dari berkas lokal maupun dari hosting statis mana pun.
+
+## Menambah foto dokumentasi
+
+Seksi Dokumentasi Kunjungan membaca `dokumentasi/daftar-foto.json` secara otomatis. Anggota kelompok cukup mengunggah foto ke folder `dokumentasi/` lalu menambahkan datanya pada berkas JSON tersebut, tanpa perlu menyentuh `index.html`. Langkah rincinya ada pada [dokumentasi/CARA-MENAMBAH-FOTO.md](dokumentasi/CARA-MENAMBAH-FOTO.md).
+
+Agar anggota dapat mengunggah sendiri lewat peramban, tambahkan mereka sebagai collaborator melalui menu Settings, Collaborators pada repositori ini.
 
 ## Cara publikasi di GitHub Pages
 

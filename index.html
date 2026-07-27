@@ -1,66 +1,86 @@
 <title>Laporan Studi Lapangan: BUMDes Manik Sedana Desa Kutuh</title>
 <style>
   :root {
-    --ground: #F6F5F0;
+    --ground: #F1F2F3;
     --surface: #FFFFFF;
-    --ink: #182B2D;
-    --ink-soft: #4C6062;
-    --laut: #0C5C63;
-    --laut-deep: #073F45;
-    --prada: #A67F2E;
-    --prada-soft: #C9A45A;
-    --line: #D9D8CE;
-    --card: #FBFAF6;
-    --poleng-a: #182B2D;
-    --poleng-b: #F6F5F0;
-    --shadow: 0 10px 30px rgba(12, 60, 66, 0.08);
+    --ink: #1A1D21;
+    --ink-soft: #5A6068;
+    --grafit: #39434E;
+    --grafit-deep: #232B34;
+    --tembaga: #7A6F5E;
+    --tembaga-soft: #A69C8B;
+    --line: #DCDEE1;
+    --card: #F7F8F9;
+    --poleng-a: #1A1D21;
+    --poleng-b: #F1F2F3;
+    --nilai-a: #39434E;
+    --nilai-b: #232B34;
+    --nilai-ink: #F5F6F7;
+    --nilai-label: #C3B79E;
+    --nilai-hint: #C7CDD4;
+    --shadow: 0 10px 30px rgba(26, 32, 38, 0.09);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --ground: #0C1B1D;
-      --surface: #122426;
-      --ink: #E4EAE6;
-      --ink-soft: #9DB3AF;
-      --laut: #55B7BE;
-      --laut-deep: #7ED0D6;
-      --prada: #D3AC5F;
-      --prada-soft: #B08F45;
-      --line: #23393B;
-      --card: #102022;
-      --poleng-a: #E4EAE6;
-      --poleng-b: #0C1B1D;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --ground: #131619;
+      --surface: #1B1F23;
+      --ink: #E7E9EB;
+      --ink-soft: #9AA1A9;
+      --grafit: #A9B7C4;
+      --grafit-deep: #C6D1DB;
+      --tembaga: #BFB49E;
+      --tembaga-soft: #8E8574;
+      --line: #2A2F35;
+      --card: #171A1E;
+      --poleng-a: #E7E9EB;
+      --poleng-b: #131619;
+      --nilai-a: #2E3740;
+      --nilai-b: #212831;
+      --nilai-ink: #F0F2F4;
+      --nilai-label: #BFB49E;
+      --nilai-hint: #AEB6BE;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
   }
   :root[data-theme="light"] {
-    --ground: #F6F5F0;
+    --ground: #F1F2F3;
     --surface: #FFFFFF;
-    --ink: #182B2D;
-    --ink-soft: #4C6062;
-    --laut: #0C5C63;
-    --laut-deep: #073F45;
-    --prada: #A67F2E;
-    --prada-soft: #C9A45A;
-    --line: #D9D8CE;
-    --card: #FBFAF6;
-    --poleng-a: #182B2D;
-    --poleng-b: #F6F5F0;
-    --shadow: 0 10px 30px rgba(12, 60, 66, 0.08);
+    --ink: #1A1D21;
+    --ink-soft: #5A6068;
+    --grafit: #39434E;
+    --grafit-deep: #232B34;
+    --tembaga: #7A6F5E;
+    --tembaga-soft: #A69C8B;
+    --line: #DCDEE1;
+    --card: #F7F8F9;
+    --poleng-a: #1A1D21;
+    --poleng-b: #F1F2F3;
+    --nilai-a: #39434E;
+    --nilai-b: #232B34;
+    --nilai-ink: #F5F6F7;
+    --nilai-label: #C3B79E;
+    --nilai-hint: #C7CDD4;
+    --shadow: 0 10px 30px rgba(26, 32, 38, 0.09);
   }
   :root[data-theme="dark"] {
-    --ground: #0C1B1D;
-    --surface: #122426;
-    --ink: #E4EAE6;
-    --ink-soft: #9DB3AF;
-    --laut: #55B7BE;
-    --laut-deep: #7ED0D6;
-    --prada: #D3AC5F;
-    --prada-soft: #B08F45;
-    --line: #23393B;
-    --card: #102022;
-    --poleng-a: #E4EAE6;
-    --poleng-b: #0C1B1D;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --ground: #131619;
+    --surface: #1B1F23;
+    --ink: #E7E9EB;
+    --ink-soft: #9AA1A9;
+    --grafit: #A9B7C4;
+    --grafit-deep: #C6D1DB;
+    --tembaga: #BFB49E;
+    --tembaga-soft: #8E8574;
+    --line: #2A2F35;
+    --card: #171A1E;
+    --poleng-a: #E7E9EB;
+    --poleng-b: #131619;
+    --nilai-a: #2E3740;
+    --nilai-b: #212831;
+    --nilai-ink: #F0F2F4;
+    --nilai-label: #BFB49E;
+    --nilai-hint: #AEB6BE;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
   * { box-sizing: border-box; }
@@ -79,7 +99,7 @@
   }
   .serif { font-family: "Sitka Heading", Charter, "Bitstream Charter", Cambria, Georgia, serif; }
 
-  a { color: var(--laut); }
+  a { color: var(--grafit); }
 
   /* Poleng divider: kain poleng checkerboard, rendered subtle */
   .poleng {
@@ -113,7 +133,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-size: 0.72rem;
-    color: var(--laut);
+    color: var(--grafit);
     white-space: nowrap;
   }
   .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -124,12 +144,12 @@
     padding: 5px 10px;
     border-radius: 999px;
   }
-  .nav-links a:hover, .nav-links a:focus-visible { background: var(--card); color: var(--laut); outline: none; box-shadow: inset 0 0 0 1px var(--line); }
+  .nav-links a:hover, .nav-links a:focus-visible { background: var(--card); color: var(--grafit); outline: none; box-shadow: inset 0 0 0 1px var(--line); }
 
   header.hero {
     position: relative;
     background-image:
-      linear-gradient(178deg, rgba(6, 34, 38, 0.42) 0%, rgba(6, 38, 42, 0.62) 55%, rgba(5, 30, 34, 0.88) 100%),
+      linear-gradient(178deg, rgba(18, 22, 27, 0.44) 0%, rgba(20, 25, 30, 0.66) 55%, rgba(14, 17, 21, 0.9) 100%),
       url("assets/pandawa-hero.jpg");
     background-size: cover;
     background-position: center 62%;
@@ -139,14 +159,14 @@
     margin: 0 auto;
     padding: 96px 24px 60px;
   }
-  header.hero h1 { color: #F7FCFB; text-shadow: 0 2px 18px rgba(4, 24, 27, 0.45); }
-  header.hero h1 .laut { color: #8FD8DC; }
-  header.hero .eyebrow { color: #E3C57E; }
+  header.hero h1 { color: #F5F6F7; text-shadow: 0 2px 18px rgba(12, 15, 19, 0.5); }
+  header.hero h1 .grafit { color: #B9C5D1; }
+  header.hero .eyebrow { color: #C3B79E; }
   header.hero .eyebrow::before {
-    background: conic-gradient(#F7FCFB 90deg, transparent 90deg 180deg, #F7FCFB 180deg 270deg, transparent 270deg) 0 0 / 8px 8px;
+    background: conic-gradient(#F5F6F7 90deg, transparent 90deg 180deg, #F5F6F7 180deg 270deg, transparent 270deg) 0 0 / 8px 8px;
     opacity: 0.8;
   }
-  header.hero .hero-sub { color: #D5E5E2; text-shadow: 0 1px 10px rgba(4, 24, 27, 0.5); }
+  header.hero .hero-sub { color: #D3D8DD; text-shadow: 0 1px 10px rgba(12, 15, 19, 0.55); }
   .hero-kredit {
     position: absolute;
     right: 14px;
@@ -162,7 +182,7 @@
     font-size: 0.74rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--prada);
+    color: var(--tembaga);
     font-weight: 700;
   }
   .eyebrow::before {
@@ -179,7 +199,7 @@
     font-weight: 700;
     letter-spacing: -0.01em;
   }
-  h1 .laut { color: var(--laut); }
+  h1 .grafit { color: var(--grafit); }
   .hero-sub {
     max-width: 62ch;
     color: var(--ink-soft);
@@ -212,7 +232,7 @@
   .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
   .sec-head .no {
     font-family: Charter, Cambria, Georgia, serif;
-    color: var(--prada);
+    color: var(--tembaga);
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -235,7 +255,7 @@
   .stat {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-left: 4px solid var(--laut);
+    border-left: 4px solid var(--grafit);
     border-radius: 12px;
     padding: 16px 18px;
   }
@@ -243,12 +263,12 @@
     display: block;
     font-size: 1.55rem;
     font-variant-numeric: tabular-nums;
-    color: var(--laut);
+    color: var(--grafit);
     letter-spacing: -0.01em;
     line-height: 1.2;
   }
   .stat span { font-size: 0.82rem; color: var(--ink-soft); }
-  .stat small { display:block; font-size: 0.7rem; color: var(--prada); margin-top: 6px; font-weight: 600; }
+  .stat small { display:block; font-size: 0.7rem; color: var(--tembaga); margin-top: 6px; font-weight: 600; }
 
   .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; align-items: start; }
   @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
@@ -261,10 +281,10 @@
     left: -28px; top: 7px;
     width: 10px; height: 10px;
     border-radius: 999px;
-    background: var(--prada);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--prada) 25%, transparent);
+    background: var(--tembaga);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--tembaga) 25%, transparent);
   }
-  .tl-item .thn { font-weight: 700; color: var(--laut); font-variant-numeric: tabular-nums; }
+  .tl-item .thn { font-weight: 700; color: var(--grafit); font-variant-numeric: tabular-nums; }
   .tl-item .isi { font-size: 0.92rem; color: var(--ink-soft); }
 
   /* BMC canvas */
@@ -303,18 +323,18 @@
     flex-direction: column;
     gap: 6px;
   }
-  .blok:hover { border-color: var(--laut); transform: translateY(-2px); box-shadow: var(--shadow); }
-  .blok:focus-visible { outline: 2px solid var(--laut); outline-offset: 2px; }
-  .blok.aktif { border-color: var(--laut); box-shadow: inset 0 0 0 1px var(--laut), var(--shadow); }
-  .blok.nilai { background: linear-gradient(150deg, var(--laut) 0%, var(--laut-deep) 100%); color: #F4FBFA; border-color: transparent; }
-  .blok.nilai .blok-k { color: var(--prada-soft); }
-  .blok.nilai .blok-hint { color: #CDE7E4; }
+  .blok:hover { border-color: var(--grafit); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .blok:focus-visible { outline: 2px solid var(--grafit); outline-offset: 2px; }
+  .blok.aktif { border-color: var(--grafit); box-shadow: inset 0 0 0 1px var(--grafit), var(--shadow); }
+  .blok.nilai { background: linear-gradient(150deg, var(--nilai-a) 0%, var(--nilai-b) 100%); color: var(--nilai-ink); border-color: transparent; }
+  .blok.nilai .blok-k { color: var(--nilai-label); }
+  .blok.nilai .blok-hint { color: var(--nilai-hint); }
   .blok-k {
     font-size: 0.66rem;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     font-weight: 700;
-    color: var(--prada);
+    color: var(--tembaga);
   }
   .blok-j { font-weight: 700; font-size: 0.98rem; line-height: 1.3; }
   .blok-hint { font-size: 0.78rem; color: var(--ink-soft); margin-top: auto; }
@@ -332,8 +352,8 @@
   }
   .bmc-detail.tampil { display: block; animation: masuk 220ms ease; }
   @keyframes masuk { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  .bmc-detail h3 { margin: 0 0 4px; font-size: 1.15rem; color: var(--laut); }
-  .bmc-detail .sumberket { font-size: 0.76rem; color: var(--prada); font-weight: 600; margin-bottom: 10px; }
+  .bmc-detail h3 { margin: 0 0 4px; font-size: 1.15rem; color: var(--grafit); }
+  .bmc-detail .sumberket { font-size: 0.76rem; color: var(--tembaga); font-weight: 600; margin-bottom: 10px; }
   .bmc-detail ul { margin: 0; padding-left: 20px; }
   .bmc-detail li { margin-bottom: 7px; max-width: 75ch; }
 
@@ -372,7 +392,7 @@
     padding: 14px 18px;
     font-size: 0.9rem;
   }
-  .umum .k { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--prada); font-weight: 700; margin-bottom: 4px; }
+  .umum .k { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tembaga); font-weight: 700; margin-bottom: 4px; }
 
   .keu-group {
     background: var(--surface);
@@ -381,7 +401,7 @@
     padding: 22px 26px;
     margin-top: 22px;
   }
-  .keu-group h3 { margin: 0 0 4px; font-size: 1.05rem; color: var(--laut); }
+  .keu-group h3 { margin: 0 0 4px; font-size: 1.05rem; color: var(--grafit); }
   .keu-group .ket { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 16px; }
   .keu-row { display: grid; grid-template-columns: 230px 1fr 76px; gap: 14px; align-items: center; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent); }
   .keu-row:last-child { border-bottom: 0; }
@@ -389,12 +409,12 @@
   .keu-row .lbl { font-size: 0.88rem; font-weight: 600; line-height: 1.35; }
   .keu-row .lbl small { display: block; font-weight: 400; font-size: 0.76rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
   .bar-wrap { position: relative; height: 14px; background: color-mix(in srgb, var(--line) 45%, transparent); border-radius: 4px; overflow: hidden; }
-  .bar-fill { position: absolute; inset: 0 auto 0 0; background: var(--laut); border-radius: 4px 4px 4px 4px; min-width: 3px; }
-  .bar-fill.lebih { background: var(--prada); }
-  .keu-row .pct { font-size: 0.82rem; font-weight: 700; color: var(--laut); font-variant-numeric: tabular-nums; text-align: right; }
-  .keu-row .pct.lebih { color: var(--prada); }
+  .bar-fill { position: absolute; inset: 0 auto 0 0; background: var(--grafit); border-radius: 4px 4px 4px 4px; min-width: 3px; }
+  .bar-fill.lebih { background: var(--tembaga); }
+  .keu-row .pct { font-size: 0.82rem; font-weight: 700; color: var(--grafit); font-variant-numeric: tabular-nums; text-align: right; }
+  .keu-row .pct.lebih { color: var(--tembaga); }
 
-  .highlight-sampah {
+  .sorotan {
     margin-top: 40px;
     background: var(--surface);
     border: 1px solid var(--line);
@@ -402,19 +422,34 @@
     padding: 28px 30px;
     box-shadow: var(--shadow);
   }
-  .highlight-sampah h3 { margin: 0 0 6px; font-size: 1.25rem; }
-  .highlight-sampah h3 span { color: var(--laut); }
+  .sorotan h3 { margin: 0 0 6px; font-size: 1.25rem; }
+  .sorotan h3 span { color: var(--grafit); }
 
   .lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 28px; }
   .lesson {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-top: 4px solid var(--prada);
+    border-top: 4px solid var(--tembaga);
     border-radius: 12px;
     padding: 20px 22px;
   }
   .lesson h3 { margin: 0 0 8px; font-size: 1.02rem; }
   .lesson p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+  .lesson .transfer {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 0.86rem;
+  }
+  .lesson .transfer .k {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--tembaga);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
 
   .tbl-wrap { overflow-x: auto; margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
   table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 0.9rem; }
@@ -423,7 +458,7 @@
     padding: 16px 18px 6px;
     font-weight: 700;
     font-size: 0.95rem;
-    color: var(--laut);
+    color: var(--grafit);
   }
   th {
     text-align: left;
@@ -437,7 +472,7 @@
   }
   td { padding: 13px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr:last-child td { border-bottom: 0; }
-  td.no { font-variant-numeric: tabular-nums; color: var(--prada); font-weight: 700; }
+  td.no { font-variant-numeric: tabular-nums; color: var(--tembaga); font-weight: 700; }
   .pill {
     display: inline-block;
     padding: 2px 11px;
@@ -446,12 +481,12 @@
     font-weight: 700;
     letter-spacing: 0.04em;
   }
-  .pill.t { background: color-mix(in srgb, var(--laut) 14%, transparent); color: var(--laut); }
-  .pill.s { background: color-mix(in srgb, var(--prada) 16%, transparent); color: var(--prada); }
+  .pill.t { background: color-mix(in srgb, var(--grafit) 14%, transparent); color: var(--grafit); }
+  .pill.s { background: color-mix(in srgb, var(--tembaga) 16%, transparent); color: var(--tembaga); }
 
   .catatan {
-    border-left: 4px solid var(--prada);
-    background: color-mix(in srgb, var(--prada) 7%, var(--surface));
+    border-left: 4px solid var(--tembaga);
+    background: color-mix(in srgb, var(--tembaga) 7%, var(--surface));
     border-radius: 0 12px 12px 0;
     padding: 14px 20px;
     font-size: 0.9rem;
@@ -460,6 +495,83 @@
     margin-top: 26px;
   }
   .catatan b { color: var(--ink); }
+
+  .galeri {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 26px;
+  }
+  .galeri figure {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .galeri button.buka {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+    display: block;
+    line-height: 0;
+  }
+  .galeri button.buka:focus-visible { outline: 2px solid var(--grafit); outline-offset: -2px; }
+  .galeri img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .galeri figcaption { padding: 12px 14px 14px; font-size: 0.84rem; display: flex; flex-direction: column; gap: 6px; }
+  .galeri figcaption b { font-size: 0.9rem; }
+  .galeri figcaption .ket { color: var(--ink-soft); }
+  .galeri .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.72rem; color: var(--ink-soft); margin-top: 2px; }
+  .galeri .meta span { display: inline-flex; gap: 5px; }
+  .galeri .meta i { font-style: normal; color: var(--tembaga); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.64rem; }
+  .galeri-kosong {
+    margin-top: 26px;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 26px 28px;
+    background: var(--card);
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    max-width: 78ch;
+  }
+  .galeri-kosong b { color: var(--ink); }
+  .galeri-kosong code {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 0.85em;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(12, 15, 19, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+  }
+  .lightbox.tampil { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 80vh; border-radius: 8px; }
+  .lightbox figcaption { color: #E7E9EB; font-size: 0.86rem; text-align: center; margin-top: 14px; max-width: 70ch; }
+  .lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+  .lightbox .tutup {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none;
+    border: 1px solid rgba(231, 233, 235, 0.4);
+    color: #E7E9EB;
+    border-radius: 999px;
+    width: 38px; height: 38px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  .lightbox .tutup:hover { background: rgba(231, 233, 235, 0.12); }
 
   .tim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 26px; }
   .tim {
@@ -472,13 +584,13 @@
     font-size: 0.68rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--prada);
+    color: var(--tembaga);
     font-weight: 700;
     margin-bottom: 6px;
   }
   .tim ul { margin: 0; padding-left: 18px; font-size: 0.9rem; }
   .tim li { margin-bottom: 3px; }
-  .tim.bmc-tim { border-color: var(--laut); box-shadow: inset 0 0 0 1px var(--laut); }
+  .tim.bmc-tim { border-color: var(--grafit); box-shadow: inset 0 0 0 1px var(--grafit); }
 
   .ref { font-size: 0.88rem; color: var(--ink-soft); max-width: 82ch; }
   .ref p { margin: 0 0 12px; padding-left: 2.2em; text-indent: -2.2em; }
@@ -502,8 +614,8 @@
       <a href="#bmc-sec">Business Model Canvas</a>
       <a href="#lesson">Lesson Learnt</a>
       <a href="#diagnosa">Diagnosa &amp; Ide</a>
+      <a href="#dokumentasi">Dokumentasi</a>
       <a href="#tim">Kelompok II</a>
-      <a href="#referensi">Referensi</a>
     </div>
   </div>
 </nav>
@@ -511,7 +623,7 @@
 <header class="hero">
   <div class="hero-inner">
   <span class="eyebrow">Laporan Studi Lapangan Kinerja Organisasi</span>
-  <h1 class="serif">BUMDes Manik Sedana <span class="laut">Desa Kutuh</span>: Korporasi Desa di Atas Bukit Kapur</h1>
+  <h1 class="serif">BUMDes Manik Sedana <span class="grafit">Desa Kutuh</span>: Korporasi Desa di Atas Bukit Kapur</h1>
   <p class="hero-sub">Dari desa petani rumput laut menjadi salah satu desa terkaya di Indonesia. Laporan ini menyajikan profil lokus, Business Model Canvas, lesson learnt, serta diagnosa dan ide penyelesaian atas praktik pengelolaan badan usaha milik desa di Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.</p>
   <div class="identitas" role="table" aria-label="Identitas kunjungan">
     <div><div class="k">Pelatihan</div><div class="v">PKA Angkatan XVIII TA 2026</div></div>
@@ -580,7 +692,7 @@
 
   <section id="keuangan">
     <div class="sec-head"><span class="no">02</span><h2 class="serif">Posisi Keuangan Desa</h2></div>
-    <p class="lede">Data transparansi anggaran APBDesa 2026 bersumber dari Siskeudes yang dipublikasikan pada situs resmi Desa Kutuh, posisi realisasi per Juli 2026. Batang berwarna menunjukkan realisasi terhadap anggaran; warna emas menandai pos yang realisasinya telah melampaui target.</p>
+    <p class="lede">Data transparansi anggaran APBDesa 2026 bersumber dari Siskeudes yang dipublikasikan pada situs resmi Desa Kutuh, posisi realisasi per Juli 2026. Panjang batang menunjukkan realisasi terhadap anggaran, dan batang berwarna tembaga menandai pos yang realisasinya telah melampaui target. Persentase tertera pada setiap baris.</p>
 
     <div class="stat-row">
       <div class="stat"><b>Rp6,06 M</b><span>realisasi pendapatan desa dari anggaran Rp20,68 miliar (29,29%)</span><small>Siskeudes, APBDesa 2026</small></div>
@@ -706,7 +818,7 @@
       <div class="bmc-detail" id="panel-bmc" role="tabpanel" aria-live="polite"></div>
     </div>
 
-    <div class="highlight-sampah">
+    <div class="sorotan">
       <h3 class="serif">Sorotan: <span>Pariwisata Berbasis Desa Adat</span></h3>
       <p>Kekuatan utama model bisnis BUMDes Manik Sedana terletak pada pengelolaan destinasi wisata berbasis desa adat. Pantai Pandawa dan Pantai Gunung Payung dikelola dengan melibatkan masyarakat lokal dalam perencanaan, operasional, dan pelestarian budaya, sehingga omset wisata sekitar Rp20 miliar per tahun berputar kembali ke dalam desa. Pendekatan ini menyeimbangkan misi komersial dan pelayanan publik, sejalan dengan filosofi Tri Hita Karana yang menempatkan harmoni manusia, budaya, dan alam sebagai landasan setiap keputusan usaha.</p>
     </div>
@@ -716,12 +828,36 @@
     <div class="sec-head"><span class="no">04</span><h2 class="serif">Lesson Learnt</h2></div>
     <p class="lede">Enam pelajaran utama yang relevan direplikasi oleh organisasi sektor publik, dirumuskan dari praktik terbaik lokus.</p>
     <div class="lesson-grid">
-      <div class="lesson"><h3>Potensi lokal sebagai basis bisnis</h3><p>Kutuh tidak menunggu bantuan; desa mengkapitalisasi aset yang dimiliki, tebing, pantai, dan lahan, menjadi portofolio usaha yang menghidupi desa. Transformasi dimulai dari keputusan berani membuka akses Pantai Pandawa.</p></div>
-      <div class="lesson"><h3>Tata kelola ganda yang saling menguatkan</h3><p>BUMDes menangani aspek komersial, sementara BUMDA menjaga nilai adat dan modal sosial. Pembagian peran ini meredam konflik kepentingan antara logika bisnis dan logika budaya.</p></div>
-      <div class="lesson"><h3>Kepatuhan dan legalitas sebagai strategi</h3><p>Status badan hukum dan Pengusaha Kena Pajak pertama di Bali menunjukkan bahwa formalisasi bukan beban, melainkan fondasi kepercayaan bagi mitra, investor, dan pemerintah.</p></div>
-      <div class="lesson"><h3>Inklusivitas tenaga kerja lokal</h3><p>Setiap pembukaan unit usaha diriset kesesuaiannya dengan warga, dan pekerjanya wajib berasal dari warga Kutuh. Pertumbuhan usaha otomatis menjadi pertumbuhan lapangan kerja desa.</p></div>
-      <div class="lesson"><h3>Reinvestasi sosial yang terlembaga</h3><p>Alokasi 5 persen laba BUMDes untuk kegiatan sosial dan pendidikan menjadikan redistribusi manfaat bagian dari model bisnis, bukan kemurahan hati sesaat.</p></div>
-      <div class="lesson"><h3>Kearifan lokal sebagai kerangka keberlanjutan</h3><p>Tri Hita Karana berfungsi layaknya kerangka ESG versi desa: menyeimbangkan profit, harmoni sosial, dan kelestarian alam dalam setiap keputusan usaha.</p></div>
+      <div class="lesson">
+        <h3>Hambatan dibaca ulang menjadi aset</h3>
+        <p>Tebing kapur yang selama puluhan tahun mengurung desa dari pantainya justru dipotong dan dijadikan gerbang masuk kawasan wisata. Modal awal Rp1,8 miliar dari dana desa kini menopang omset wisata sekitar Rp20 miliar per tahun. Yang menggerakkan bukan tambahan anggaran, melainkan keberanian membaca ulang apa yang selama ini dianggap kendala.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Inventarisasi aset dan kapasitas yang menganggur sebelum mengusulkan belanja modal baru.</div>
+      </div>
+      <div class="lesson">
+        <h3>Pemisahan peran meredam benturan nilai</h3>
+        <p>BUMDes memegang fungsi komersial, sedangkan BUMDA menjaga nilai adat dan modal sosial. Pemisahan ini mencegah logika bisnis menggerus legitimasi budaya, sekaligus mencegah urusan adat menyandera keputusan usaha. Keduanya bersinergi justru karena mandatnya tidak dicampur.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Pisahkan unit pengejar target dari unit penjaga nilai dan kepatuhan, jangan ditumpuk pada satu pejabat.</div>
+      </div>
+      <div class="lesson">
+        <h3>Formalisasi diambil lebih awal dari kewajiban</h3>
+        <p>Status Pengusaha Kena Pajak pertama di Bali diraih pada 2017 dan badan hukum ditetapkan lewat Perdes Nomor 12 Tahun 2021, keduanya sebelum tekanan regulasi memaksa. Legalitas dini inilah yang kemudian membuka pintu kemitraan investor dan kontrak berskala korporasi.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Kejar status kepatuhan mendahului tenggat, lalu gunakan sebagai pembeda daya saing, bukan sekadar penggugur kewajiban.</div>
+      </div>
+      <div class="lesson">
+        <h3>Pemberdayaan dikunci di hulu keputusan</h3>
+        <p>Setiap rencana unit usaha baru lebih dulu diuji kecocokannya dengan warga, dan pekerjanya wajib berasal dari Desa Kutuh. Karena syarat ini melekat pada keputusan pembukaan usaha dan bukan pada imbauan, setiap pertumbuhan usaha otomatis menjadi pertumbuhan lapangan kerja. Hasilnya lebih dari 70 tenaga kerja lokal terserap sepanjang 2020 sampai 2024.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Letakkan syarat pemberdayaan pada kriteria kelayakan program di tahap perencanaan, bukan pada laporan akhir.</div>
+      </div>
+      <div class="lesson">
+        <h3>Komitmen sosial dikunci dalam formula</h3>
+        <p>Alokasi 5 persen laba BUMDes untuk kegiatan sosial dan pendidikan ditetapkan sebagai aturan tetap, bukan kebijakan tahunan yang bisa menguap ketika kas sedang ketat. Redistribusi manfaat menjadi bagian dari model bisnis, bukan kemurahan hati yang bergantung suasana.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Tetapkan komitmen sosial sebagai persentase yang mengikat dalam aturan, bukan diskresi pimpinan.</div>
+      </div>
+      <div class="lesson">
+        <h3>Nilai bersama sebagai dasar untuk menolak</h3>
+        <p>Tri Hita Karana bekerja layaknya kerangka ESG versi desa dan memberi legitimasi budaya untuk menolak peluang usaha yang merusak harmoni. Karena nilai itu dipegang bersama, penolakan tidak terbaca sebagai hambatan birokrasi, melainkan sebagai konsistensi yang dipahami warga.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Rumuskan nilai organisasi yang cukup tegas untuk dijadikan dasar menolak, bukan sekadar slogan yang dipajang.</div>
+      </div>
     </div>
   </section>
 
@@ -764,8 +900,17 @@
     <div class="catatan"><b>Catatan metodologis.</b> Diagnosa di atas disusun dengan prinsip apresiatif sesuai panduan: kesenjangan dibaca sebagai peluang perbaikan sebuah lokus berpredikat best practice, bukan kekurangan. Validasi lapangan menggunakan pertanyaan Prioritas 1 sampai 3 dari Panduan Wawancara Studi Lapangan PKA XVIII, dan tabel ini akan dimutakhirkan setelah catatan data serta catatan interpretasi kunjungan terkumpul.</div>
   </section>
 
+  <section id="dokumentasi">
+    <div class="sec-head"><span class="no">06</span><h2 class="serif">Dokumentasi Kunjungan</h2></div>
+    <p class="lede">Rekaman visual kunjungan lapangan ke BUMDes Manik Sedana Desa Kutuh pada 27 Juli 2026. Klik gambar untuk melihat ukuran penuh.</p>
+    <div class="galeri" id="galeri" hidden></div>
+    <div class="galeri-kosong" id="galeri-kosong">
+      <b>Belum ada foto dokumentasi yang dimuat.</b> Foto ditempatkan pada folder <code>dokumentasi/</code>, lalu datanya didaftarkan pada berkas <code>dokumentasi/daftar-foto.json</code>. Setiap foto memuat judul, keterangan, waktu, lokasi, dan nama pengambil gambar. Galeri akan tampil otomatis begitu daftar terisi, tanpa perlu mengubah halaman ini.
+    </div>
+  </section>
+
   <section id="tim">
-    <div class="sec-head"><span class="no">06</span><h2 class="serif">Kelompok II</h2></div>
+    <div class="sec-head"><span class="no">07</span><h2 class="serif">Kelompok II</h2></div>
     <p class="lede">Ketua kelompok: <b>Rully Devriantoro</b>. Pembagian peran penyusunan laporan sebagai berikut.</p>
     <div class="tim-grid">
       <div class="tim"><div class="peran">Profil Lokus</div><ul><li>Khusnul Arifin</li><li>Muhammad Ali Shodiqin</li></ul></div>
@@ -777,24 +922,19 @@
     </div>
   </section>
 
-  <section id="referensi">
-    <div class="sec-head"><span class="no">07</span><h2 class="serif">Referensi</h2></div>
-    <div class="ref" style="margin-top: 22px;">
-      <p>Nugroho, T. P., Titasari, S. H., Pradipa, R. A., Mayangsari, P. T., Mujiono, K., Ardinsah, A., Sugiantoro, &amp; Hasanah, N. (2025). Strategi pembangunan ekonomi Desa Kutuh sebagai desa mandiri di Kabupaten Badung, Bali. <i>Jurnal Pendidikan Ekonomi Undiksha, 17</i>(3), 554-568. https://doi.org/10.23887/jjpe.v17i3.97396</p>
-      <p>Peraturan Desa Kutuh Nomor 12 Tahun 2021 tentang Pendirian Badan Usaha Milik Desa Manik Sedana Desa Kutuh. (2021). Lembaran Desa Kutuh Tahun 2021 Nomor 12.</p>
-      <p>Peraturan Pemerintah Republik Indonesia Nomor 11 Tahun 2021 tentang Badan Usaha Milik Desa. (2021). Lembaran Negara Republik Indonesia Tahun 2021 Nomor 21.</p>
-      <p>Syauket, A., &amp; Indriasari, R. (2024). Optimalisasi penggunaan dana desa membawa Desa Kutuh Badung-Bali menjadi smart village. <i>Jurnal Kajian Ilmiah, 24</i>(2), 101-114.</p>
-      <p>Yudartha, I. P. D., &amp; Agung, I. G. B. W. (2024). The synergy of BUMDes (village-owned enterprises) and BUMDA (customary village-owned enterprises) in the perspective of dynamic governance in Kutuh Village, Badung District, Bali. <i>International Journal of Social Science and Human Research, 7</i>(10), 7733-7740.</p>
-    </div>
-  </section>
-</main>
+  </main>
 
 <footer>
-  <div class="poleng" style="max-width: 220px; margin: 0 auto 22px;"></div>
+  <div class="poleng" style="max-width: 220px; margin: 0 auto 22px;" role="presentation"></div>
   Laporan Studi Lapangan Kinerja Organisasi · Pelatihan Kepemimpinan Administrator Angkatan XVIII · Tahun Anggaran 2026<br>
   Kelompok II · Lokus BUMDes Manik Sedana Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali · Kunjungan 27 Juli 2026<br>
-  <span style="font-size: 0.72rem;">Foto-foto Pantai Pandawa dari Wikimedia Commons, lisensi CC BY-SA, karya Riska Diamitri, Jenhan Putra, Alharomain354, dan Chaecilly.</span>
+  <span style="font-size: 0.72rem;">Sumber data: situs resmi Desa Kutuh (Siskeudes, APBDesa 2026), Peraturan Desa Kutuh Nomor 12 Tahun 2021, dan Nugroho dkk. (2025) dalam Jurnal Pendidikan Ekonomi Undiksha 17(3). Foto Pantai Pandawa dari Wikimedia Commons, lisensi CC BY-SA, karya Riska Diamitri, Jenhan Putra, Alharomain354, dan Chaecilly.</span>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto dokumentasi">
+  <button class="tutup" id="lightbox-tutup" aria-label="Tutup pratinjau">&times;</button>
+  <figure><img id="lightbox-img" src="" alt=""><figcaption id="lightbox-teks"></figcaption></figure>
+</div>
 
 <script>
   const DETAIL = {
@@ -835,10 +975,10 @@
       judul: "Blok 4 · Hubungan Pelanggan",
       sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
       isi: [
-        "Hubungan berlangganan jangka panjang untuk layanan sampah dan energi rumah tangga.",
+        "Hubungan berlangganan jangka panjang untuk layanan energi rumah tangga melalui pangkalan gas desa.",
         "Keterlibatan komunitas: warga adalah pelanggan sekaligus pemilik dan pekerja, dipertemukan dalam forum terbuka pelaporan kinerja.",
         "Pelayanan responsif atas keluhan fasilitas, dari jalan berlubang sampai jaringan listrik, yang ditangani cepat oleh desa.",
-        "Edukasi dan penyuluhan pemilahan sampah serta program sadar wisata (Pokdarwis).",
+        "Edukasi dan pembinaan kelompok sadar wisata (Pokdarwis) bagi warga yang terlibat di kawasan destinasi.",
         "Relasi kemitraan formal dengan penyewa aset dan investor melalui kontrak."
       ]
     },
@@ -925,4 +1065,64 @@
       panel.classList.add("tampil");
     });
   });
+
+  // Galeri dokumentasi: dimuat dari dokumentasi/daftar-foto.json
+  const galeri = document.getElementById("galeri");
+  const galeriKosong = document.getElementById("galeri-kosong");
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightbox-img");
+  const lbTeks = document.getElementById("lightbox-teks");
+
+  function amanTeks(s) {
+    const d = document.createElement("div");
+    d.textContent = s == null ? "" : String(s);
+    return d.innerHTML;
+  }
+
+  function bukaLightbox(sumber, alt, teks) {
+    lbImg.src = sumber;
+    lbImg.alt = alt;
+    lbTeks.textContent = teks;
+    lightbox.classList.add("tampil");
+    document.getElementById("lightbox-tutup").focus();
+  }
+  function tutupLightbox() {
+    lightbox.classList.remove("tampil");
+    lbImg.src = "";
+  }
+  document.getElementById("lightbox-tutup").addEventListener("click", tutupLightbox);
+  lightbox.addEventListener("click", function (e) { if (e.target === lightbox) tutupLightbox(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") tutupLightbox(); });
+
+  function gambarGaleri(daftar) {
+    if (!Array.isArray(daftar) || daftar.length === 0) return;
+    galeri.innerHTML = daftar.map(function (f) {
+      const src = "dokumentasi/" + f.berkas;
+      const judul = f.judul || f.berkas;
+      const meta = [
+        f.waktu ? "<span><i>Waktu</i>" + amanTeks(f.waktu) + "</span>" : "",
+        f.lokasi ? "<span><i>Lokasi</i>" + amanTeks(f.lokasi) + "</span>" : "",
+        f.oleh ? "<span><i>Oleh</i>" + amanTeks(f.oleh) + "</span>" : ""
+      ].join("");
+      return "<figure>" +
+        "<button class=\"buka\" type=\"button\" data-src=\"" + amanTeks(src) + "\" data-judul=\"" + amanTeks(judul) + "\">" +
+        "<img src=\"" + amanTeks(src) + "\" alt=\"" + amanTeks(judul) + "\" loading=\"lazy\"></button>" +
+        "<figcaption><b>" + amanTeks(judul) + "</b>" +
+        (f.keterangan ? "<span class=\"ket\">" + amanTeks(f.keterangan) + "</span>" : "") +
+        (meta ? "<span class=\"meta\">" + meta + "</span>" : "") +
+        "</figcaption></figure>";
+    }).join("");
+    galeri.hidden = false;
+    galeriKosong.hidden = true;
+    galeri.querySelectorAll("button.buka").forEach(function (b) {
+      b.addEventListener("click", function () {
+        bukaLightbox(b.dataset.src, b.dataset.judul, b.dataset.judul);
+      });
+    });
+  }
+
+  fetch("dokumentasi/daftar-foto.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(gambarGaleri)
+    .catch(function () { /* daftar belum tersedia, biarkan pesan bawaan tampil */ });
 </script>
