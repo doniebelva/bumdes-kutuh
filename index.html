@@ -792,6 +792,19 @@
   .unduh:focus-visible { outline: 2px solid var(--tembaga); outline-offset: 3px; }
   .unduh .ikon { font-size: 1.15rem; line-height: 1; }
   .unduh .rinci { display: block; font-weight: 400; font-size: 0.74rem; opacity: 0.82; margin-top: 2px; }
+  .unduh.pdf { background: var(--tembaga); }
+  .unduh-grup { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .unduh-grup .unduh { margin-top: 0; }
+  .berkas-laporan {
+    margin-top: 30px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--tembaga);
+    border-radius: 0 14px 14px 0;
+    padding: 22px 26px;
+  }
+  .berkas-laporan h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  .berkas-laporan p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 16px; }
 
   .galeri {
     display: grid;
@@ -1011,6 +1024,25 @@
         <span class="nomor">TEMUAN 06</span>
         <h3>Kinerja per unit belum terbaca terpisah</h3>
         <p>Koreksi laba 2025 sulit ditelusuri karena kinerja tiap unit usaha belum dipublikasikan secara terpisah dan berkala.</p>
+      </div>
+    </div>
+
+    <div class="berkas-laporan">
+      <h3 class="serif">Unduh laporan lengkap</h3>
+      <p>Laporan Studi Lapangan Kelompok II versi dokumen resmi, 21 halaman, memuat halaman judul, lembar pengesahan, daftar anggota, dokumentasi kunjungan, profil lokus, inovasi lokus, lesson learnt, diagnosa dan ide penyelesaian, serta kerangka laporan individu.</p>
+      <div class="unduh-grup">
+        <a class="unduh" href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.docx" download>
+          <span class="ikon" aria-hidden="true">&#8681;</span>
+          <span>Unduh versi Word
+            <span class="rinci">DOCX, 1,5 MB &middot; siap disunting dan dicetak</span>
+          </span>
+        </a>
+        <a class="unduh pdf" href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.pdf" download>
+          <span class="ikon" aria-hidden="true">&#8681;</span>
+          <span>Unduh versi PDF
+            <span class="rinci">PDF, 1,1 MB &middot; tata letak terkunci, siap diserahkan</span>
+          </span>
+        </a>
       </div>
     </div>
 
