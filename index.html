@@ -157,7 +157,7 @@
     color: var(--grafit);
     white-space: nowrap;
   }
-  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
   .nav-links a {
     text-decoration: none;
     color: var(--ink-soft);
@@ -166,6 +166,28 @@
     border-radius: 999px;
   }
   .nav-links a:hover, .nav-links a:focus-visible { background: var(--card); color: var(--grafit); outline: none; box-shadow: inset 0 0 0 1px var(--line); }
+
+  /* Tombol ganti mode terang dan gelap */
+  .tombol-tema {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 13px 6px 10px;
+    font: inherit;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+  }
+  .tombol-tema:hover { border-color: var(--tembaga); color: var(--ink); }
+  .tombol-tema:focus-visible { outline: 2px solid var(--grafit); outline-offset: 2px; }
+  .tombol-tema svg { width: 15px; height: 15px; flex: none; color: var(--tembaga); }
+  .sidebar .tombol-tema { width: 100%; justify-content: center; margin-top: 14px; }
 
   /* Indikator progres baca */
   .progres {
@@ -330,10 +352,37 @@
   }
   h1 .grafit { color: var(--grafit); }
   .hero-sub {
-    max-width: 62ch;
+    max-width: 58ch;
     color: var(--ink-soft);
-    font-size: 1.05rem;
-    margin: 0 0 34px;
+    font-size: 1.06rem;
+    margin: 0;
+  }
+  .hero-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 26px 56px;
+    align-items: end;
+    margin: 18px 0 34px;
+  }
+  @media (max-width: 900px) { .hero-body { grid-template-columns: 1fr; gap: 24px; } }
+  .hero-sorot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .hero-sorot div { border-top: 2px solid rgba(239, 187, 122, 0.7); padding-top: 10px; }
+  .hero-sorot b {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    color: #FDFCFA;
+    letter-spacing: -0.015em;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 1px 10px rgba(12, 15, 19, 0.5);
+  }
+  .hero-sorot span {
+    display: block;
+    font-size: 0.74rem;
+    color: #D9DEE3;
+    margin-top: 4px;
+    line-height: 1.4;
+    text-shadow: 0 1px 8px rgba(12, 15, 19, 0.55);
   }
   .identitas {
     display: grid;
@@ -872,6 +921,7 @@
       <a href="#diagnosa">Diagnosa &amp; Ide</a>
       <a href="#dokumentasi">Dokumentasi</a>
       <a href="#tim">Kelompok II</a>
+      <button class="tombol-tema" type="button" aria-label="Ganti mode tampilan"></button>
     </div>
   </div>
 </nav>
@@ -880,7 +930,14 @@
   <div class="hero-inner">
   <span class="eyebrow">Laporan Studi Lapangan Kinerja Organisasi</span>
   <h1 class="serif">BUMDes Manik Sedana <span class="grafit">Desa Kutuh</span>: Korporasi Desa di Atas Bukit Kapur</h1>
-  <p class="hero-sub">Dari desa petani rumput laut menjadi salah satu desa terkaya di Indonesia. Laporan ini menyajikan profil lokus, Business Model Canvas, lesson learnt, serta diagnosa dan ide penyelesaian atas praktik pengelolaan badan usaha milik desa di Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.</p>
+  <div class="hero-body">
+    <p class="hero-sub">Dari desa petani rumput laut menjadi salah satu desa terkaya di Indonesia. Laporan ini menyajikan profil lokus, Business Model Canvas, lesson learnt, serta diagnosa dan ide penyelesaian atas praktik pengelolaan badan usaha milik desa di Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.</p>
+    <div class="hero-sorot">
+      <div><b>0%</b><span>kemiskinan dan pengangguran sejak 2017</span></div>
+      <div><b>11x</b><span>pertumbuhan laba BUMDesa dalam empat tahun</span></div>
+      <div><b>148</b><span>tenaga kerja lokal terserap dua badan usaha desa</span></div>
+    </div>
+  </div>
   <div class="identitas" role="table" aria-label="Identitas kunjungan">
     <div><div class="k">Pelatihan</div><div class="v">PKA Angkatan XVIII TA 2026</div></div>
     <div><div class="k">Kelompok</div><div class="v">Kelompok II</div></div>
@@ -912,6 +969,7 @@
     <div class="maju-bar"><div class="maju-isi" id="maju-isi"></div></div>
     <div class="maju-teks" id="maju-teks">0% terbaca</div>
   </div>
+  <button class="tombol-tema" type="button" aria-label="Ganti mode tampilan"></button>
 </aside>
 
 <main>
@@ -1550,6 +1608,46 @@
       });
     });
   }
+
+  // Tombol mode terang dan gelap, pilihan pengguna disimpan di peramban
+  (function () {
+    const IKON = {
+      terang: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>',
+      gelap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>'
+    };
+    const tombol = Array.from(document.querySelectorAll(".tombol-tema"));
+    if (!tombol.length) return;
+
+    function temaSistem() {
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function simpan(nilai) {
+      try { localStorage.setItem("tema-laporan", nilai); } catch (e) { /* mode privat, abaikan */ }
+    }
+    function ambil() {
+      try { return localStorage.getItem("tema-laporan"); } catch (e) { return null; }
+    }
+
+    function terapkan(tema) {
+      document.documentElement.setAttribute("data-theme", tema);
+      const berikutnya = tema === "dark" ? "terang" : "gelap";
+      tombol.forEach(function (b) {
+        b.innerHTML = (tema === "dark" ? IKON.terang : IKON.gelap) + "<span>Mode " + berikutnya + "</span>";
+        b.setAttribute("aria-label", "Ganti ke mode " + berikutnya);
+      });
+    }
+
+    terapkan(ambil() || temaSistem());
+
+    tombol.forEach(function (b) {
+      b.addEventListener("click", function () {
+        const sekarang = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        const baru = sekarang === "dark" ? "light" : "dark";
+        terapkan(baru);
+        simpan(baru);
+      });
+    });
+  })();
 
   // Indikator progres baca dan penyorotan bab aktif pada daftar isi
   (function () {
