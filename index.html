@@ -1,0 +1,928 @@
+<title>Laporan Studi Lapangan: BUMDes Manik Sedana Desa Kutuh</title>
+<style>
+  :root {
+    --ground: #F6F5F0;
+    --surface: #FFFFFF;
+    --ink: #182B2D;
+    --ink-soft: #4C6062;
+    --laut: #0C5C63;
+    --laut-deep: #073F45;
+    --prada: #A67F2E;
+    --prada-soft: #C9A45A;
+    --line: #D9D8CE;
+    --card: #FBFAF6;
+    --poleng-a: #182B2D;
+    --poleng-b: #F6F5F0;
+    --shadow: 0 10px 30px rgba(12, 60, 66, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0C1B1D;
+      --surface: #122426;
+      --ink: #E4EAE6;
+      --ink-soft: #9DB3AF;
+      --laut: #55B7BE;
+      --laut-deep: #7ED0D6;
+      --prada: #D3AC5F;
+      --prada-soft: #B08F45;
+      --line: #23393B;
+      --card: #102022;
+      --poleng-a: #E4EAE6;
+      --poleng-b: #0C1B1D;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #F6F5F0;
+    --surface: #FFFFFF;
+    --ink: #182B2D;
+    --ink-soft: #4C6062;
+    --laut: #0C5C63;
+    --laut-deep: #073F45;
+    --prada: #A67F2E;
+    --prada-soft: #C9A45A;
+    --line: #D9D8CE;
+    --card: #FBFAF6;
+    --poleng-a: #182B2D;
+    --poleng-b: #F6F5F0;
+    --shadow: 0 10px 30px rgba(12, 60, 66, 0.08);
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1B1D;
+    --surface: #122426;
+    --ink: #E4EAE6;
+    --ink-soft: #9DB3AF;
+    --laut: #55B7BE;
+    --laut-deep: #7ED0D6;
+    --prada: #D3AC5F;
+    --prada-soft: #B08F45;
+    --line: #23393B;
+    --card: #102022;
+    --poleng-a: #E4EAE6;
+    --poleng-b: #0C1B1D;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Segoe UI", "Noto Sans", system-ui, -apple-system, sans-serif;
+    line-height: 1.65;
+    font-size: 16.5px;
+  }
+  .serif { font-family: "Sitka Heading", Charter, "Bitstream Charter", Cambria, Georgia, serif; }
+
+  a { color: var(--laut); }
+
+  /* Poleng divider: kain poleng checkerboard, rendered subtle */
+  .poleng {
+    height: 10px;
+    background:
+      conic-gradient(var(--poleng-a) 90deg, var(--poleng-b) 90deg 180deg, var(--poleng-a) 180deg 270deg, var(--poleng-b) 270deg) 0 0 / 20px 20px;
+    opacity: 0.22;
+    border: 0;
+    margin: 0;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .nav-brand {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--laut);
+    white-space: nowrap;
+  }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { background: var(--card); color: var(--laut); outline: none; box-shadow: inset 0 0 0 1px var(--line); }
+
+  header.hero {
+    position: relative;
+    background-image:
+      linear-gradient(178deg, rgba(6, 34, 38, 0.42) 0%, rgba(6, 38, 42, 0.62) 55%, rgba(5, 30, 34, 0.88) 100%),
+      url("assets/pandawa-hero.jpg");
+    background-size: cover;
+    background-position: center 62%;
+  }
+  .hero-inner {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 96px 24px 60px;
+  }
+  header.hero h1 { color: #F7FCFB; text-shadow: 0 2px 18px rgba(4, 24, 27, 0.45); }
+  header.hero h1 .laut { color: #8FD8DC; }
+  header.hero .eyebrow { color: #E3C57E; }
+  header.hero .eyebrow::before {
+    background: conic-gradient(#F7FCFB 90deg, transparent 90deg 180deg, #F7FCFB 180deg 270deg, transparent 270deg) 0 0 / 8px 8px;
+    opacity: 0.8;
+  }
+  header.hero .hero-sub { color: #D5E5E2; text-shadow: 0 1px 10px rgba(4, 24, 27, 0.5); }
+  .hero-kredit {
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
+    font-size: 0.64rem;
+    color: rgba(230, 240, 238, 0.6);
+    letter-spacing: 0.04em;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--prada);
+    font-weight: 700;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 34px; height: 8px;
+    background: conic-gradient(var(--poleng-a) 90deg, transparent 90deg 180deg, var(--poleng-a) 180deg 270deg, transparent 270deg) 0 0 / 8px 8px;
+    opacity: 0.55;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    line-height: 1.12;
+    margin: 18px 0 10px;
+    text-wrap: balance;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h1 .laut { color: var(--laut); }
+  .hero-sub {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin: 0 0 34px;
+  }
+  .identitas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .identitas > div { background: var(--surface); padding: 14px 18px; }
+  .identitas .k {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .identitas .v { font-size: 0.95rem; font-weight: 600; }
+
+  main { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0 24px; scroll-margin-top: 70px; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .sec-head .no {
+    font-family: Charter, Cambria, Georgia, serif;
+    color: var(--prada);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .lede { max-width: 70ch; color: var(--ink-soft); margin-top: 10px; }
+  p { max-width: 72ch; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 30px 0 10px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--laut);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .stat b {
+    display: block;
+    font-size: 1.55rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--laut);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .stat span { font-size: 0.82rem; color: var(--ink-soft); }
+  .stat small { display:block; font-size: 0.7rem; color: var(--prada); margin-top: 6px; font-weight: 600; }
+
+  .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 36px; align-items: start; }
+  @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } }
+
+  .timeline { border-left: 2px solid var(--line); padding-left: 22px; margin-top: 8px; }
+  .tl-item { position: relative; padding-bottom: 20px; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -28px; top: 7px;
+    width: 10px; height: 10px;
+    border-radius: 999px;
+    background: var(--prada);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--prada) 25%, transparent);
+  }
+  .tl-item .thn { font-weight: 700; color: var(--laut); font-variant-numeric: tabular-nums; }
+  .tl-item .isi { font-size: 0.92rem; color: var(--ink-soft); }
+
+  /* BMC canvas */
+  .bmc-wrap { margin-top: 30px; }
+  .bmc {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas:
+      "mk mk ak ak pn pn hp hp sp sp"
+      "mk mk sd sd pn pn sl sl sp sp"
+      "bi bi bi bi bi pd pd pd pd pd";
+  }
+  @media (max-width: 900px) {
+    .bmc {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "pn pn" "sp hp" "ak sd" "sl mk" "pd bi";
+    }
+  }
+  @media (max-width: 560px) {
+    .bmc { grid-template-columns: 1fr; grid-template-areas: "pn" "sp" "hp" "ak" "sd" "sl" "mk" "pd" "bi"; }
+  }
+  .blok {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 15px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .blok:hover { border-color: var(--laut); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .blok:focus-visible { outline: 2px solid var(--laut); outline-offset: 2px; }
+  .blok.aktif { border-color: var(--laut); box-shadow: inset 0 0 0 1px var(--laut), var(--shadow); }
+  .blok.nilai { background: linear-gradient(150deg, var(--laut) 0%, var(--laut-deep) 100%); color: #F4FBFA; border-color: transparent; }
+  .blok.nilai .blok-k { color: var(--prada-soft); }
+  .blok.nilai .blok-hint { color: #CDE7E4; }
+  .blok-k {
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--prada);
+  }
+  .blok-j { font-weight: 700; font-size: 0.98rem; line-height: 1.3; }
+  .blok-hint { font-size: 0.78rem; color: var(--ink-soft); margin-top: auto; }
+  #mk { grid-area: mk; } #ak { grid-area: ak; } #sd { grid-area: sd; }
+  #pn { grid-area: pn; } #hp { grid-area: hp; } #sl { grid-area: sl; }
+  #sp { grid-area: sp; } #bi { grid-area: bi; } #pd { grid-area: pd; }
+
+  .bmc-detail {
+    margin-top: 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: none;
+  }
+  .bmc-detail.tampil { display: block; animation: masuk 220ms ease; }
+  @keyframes masuk { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .bmc-detail h3 { margin: 0 0 4px; font-size: 1.15rem; color: var(--laut); }
+  .bmc-detail .sumberket { font-size: 0.76rem; color: var(--prada); font-weight: 600; margin-bottom: 10px; }
+  .bmc-detail ul { margin: 0; padding-left: 20px; }
+  .bmc-detail li { margin-bottom: 7px; max-width: 75ch; }
+
+  .foto-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 0.75fr;
+    gap: 14px;
+    margin-top: 34px;
+  }
+  @media (max-width: 860px) { .foto-grid { grid-template-columns: 1fr 1fr; } .foto-grid figure:last-child { grid-column: 1 / -1; } }
+  .foto-grid figure {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+  .foto-grid img { width: 100%; height: 240px; object-fit: cover; display: block; }
+  .foto-grid figcaption { padding: 10px 14px 12px; font-size: 0.78rem; color: var(--ink-soft); }
+  .foto-grid figcaption b { display: block; color: var(--ink); font-size: 0.85rem; margin-bottom: 1px; }
+  .foto-grid figcaption small { font-size: 0.66rem; opacity: 0.75; }
+
+  .umum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 26px;
+  }
+  .umum {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+  }
+  .umum .k { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--prada); font-weight: 700; margin-bottom: 4px; }
+
+  .keu-group {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-top: 22px;
+  }
+  .keu-group h3 { margin: 0 0 4px; font-size: 1.05rem; color: var(--laut); }
+  .keu-group .ket { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 16px; }
+  .keu-row { display: grid; grid-template-columns: 230px 1fr 76px; gap: 14px; align-items: center; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent); }
+  .keu-row:last-child { border-bottom: 0; }
+  @media (max-width: 700px) { .keu-row { grid-template-columns: 1fr 76px; } .keu-row .bar-wrap { grid-column: 1 / -1; } }
+  .keu-row .lbl { font-size: 0.88rem; font-weight: 600; line-height: 1.35; }
+  .keu-row .lbl small { display: block; font-weight: 400; font-size: 0.76rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .bar-wrap { position: relative; height: 14px; background: color-mix(in srgb, var(--line) 45%, transparent); border-radius: 4px; overflow: hidden; }
+  .bar-fill { position: absolute; inset: 0 auto 0 0; background: var(--laut); border-radius: 4px 4px 4px 4px; min-width: 3px; }
+  .bar-fill.lebih { background: var(--prada); }
+  .keu-row .pct { font-size: 0.82rem; font-weight: 700; color: var(--laut); font-variant-numeric: tabular-nums; text-align: right; }
+  .keu-row .pct.lebih { color: var(--prada); }
+
+  .highlight-sampah {
+    margin-top: 40px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 30px;
+    box-shadow: var(--shadow);
+  }
+  .highlight-sampah h3 { margin: 0 0 6px; font-size: 1.25rem; }
+  .highlight-sampah h3 span { color: var(--laut); }
+
+  .lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 28px; }
+  .lesson {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--prada);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .lesson h3 { margin: 0 0 8px; font-size: 1.02rem; }
+  .lesson p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+
+  .tbl-wrap { overflow-x: auto; margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 0.9rem; }
+  caption {
+    text-align: left;
+    padding: 16px 18px 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--laut);
+  }
+  th {
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 12px 18px;
+    border-bottom: 2px solid var(--line);
+    white-space: nowrap;
+  }
+  td { padding: 13px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td.no { font-variant-numeric: tabular-nums; color: var(--prada); font-weight: 700; }
+  .pill {
+    display: inline-block;
+    padding: 2px 11px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .pill.t { background: color-mix(in srgb, var(--laut) 14%, transparent); color: var(--laut); }
+  .pill.s { background: color-mix(in srgb, var(--prada) 16%, transparent); color: var(--prada); }
+
+  .catatan {
+    border-left: 4px solid var(--prada);
+    background: color-mix(in srgb, var(--prada) 7%, var(--surface));
+    border-radius: 0 12px 12px 0;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    max-width: 78ch;
+    margin-top: 26px;
+  }
+  .catatan b { color: var(--ink); }
+
+  .tim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 26px; }
+  .tim {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .tim .peran {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--prada);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .tim ul { margin: 0; padding-left: 18px; font-size: 0.9rem; }
+  .tim li { margin-bottom: 3px; }
+  .tim.bmc-tim { border-color: var(--laut); box-shadow: inset 0 0 0 1px var(--laut); }
+
+  .ref { font-size: 0.88rem; color: var(--ink-soft); max-width: 82ch; }
+  .ref p { margin: 0 0 12px; padding-left: 2.2em; text-indent: -2.2em; }
+
+  footer {
+    margin-top: 70px;
+    border-top: 1px solid var(--line);
+    padding: 30px 24px 44px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+  }
+</style>
+
+<nav aria-label="Navigasi laporan">
+  <div class="nav-inner">
+    <span class="nav-brand">Studi Lapangan PKA XVIII</span>
+    <div class="nav-links">
+      <a href="#profil">Profil Lokus</a>
+      <a href="#keuangan">Keuangan Desa</a>
+      <a href="#bmc-sec">Business Model Canvas</a>
+      <a href="#lesson">Lesson Learnt</a>
+      <a href="#diagnosa">Diagnosa &amp; Ide</a>
+      <a href="#tim">Kelompok II</a>
+      <a href="#referensi">Referensi</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+  <span class="eyebrow">Laporan Studi Lapangan Kinerja Organisasi</span>
+  <h1 class="serif">BUMDes Manik Sedana <span class="laut">Desa Kutuh</span>: Korporasi Desa di Atas Bukit Kapur</h1>
+  <p class="hero-sub">Dari desa petani rumput laut menjadi salah satu desa terkaya di Indonesia. Laporan ini menyajikan profil lokus, Business Model Canvas, lesson learnt, serta diagnosa dan ide penyelesaian atas praktik pengelolaan badan usaha milik desa di Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.</p>
+  <div class="identitas" role="table" aria-label="Identitas kunjungan">
+    <div><div class="k">Pelatihan</div><div class="v">PKA Angkatan XVIII TA 2026</div></div>
+    <div><div class="k">Kelompok</div><div class="v">Kelompok II</div></div>
+    <div><div class="k">Lokus</div><div class="v">BUMDes Manik Sedana, Desa Kutuh</div></div>
+    <div><div class="k">Fokus / Inovasi Unggulan</div><div class="v">Korporasi desa multiusaha berbasis pariwisata</div></div>
+    <div><div class="k">Kunjungan</div><div class="v">Senin, 27 Juli 2026</div></div>
+  </div>
+  </div>
+  <span class="hero-kredit">Foto: Riska Diamitri, CC BY-SA 4.0, Wikimedia Commons</span>
+</header>
+
+<div class="poleng" role="presentation"></div>
+
+<main>
+  <section id="profil">
+    <div class="sec-head"><span class="no">01</span><h2 class="serif">Profil Lokus: Transformasi Desa Kutuh</h2></div>
+    <div class="two-col">
+      <div>
+        <p class="lede">Desa Kutuh berdiri di atas perbukitan kapur di ujung selatan Bali, berbatasan langsung dengan pesisir yang kini menjadi ikon pariwisata: Pantai Pandawa dan Pantai Gunung Payung. Sebelum tahun 1997, mayoritas warganya adalah petani rumput laut dengan penghasilan yang bergantung pada musim, sementara akses ke pantai tertutup dinding tebing.</p>
+        <p>Titik balik terjadi ketika pemerintah desa dan masyarakat memotong tebing kapur untuk membuka akses ke Pantai Pandawa. Langkah tersebut menjadi awal transformasi ekonomi berbasis potensi lokal yang dikelola secara kelembagaan melalui BUMDes, Badan Usaha Milik Desa Adat (BUMDA), dan Lembaga Perkreditan Desa (LPD). BUMDes Kutuh berdiri pada 2016 dengan modal awal Rp1,8 miliar dari alokasi dana desa, menjadi BUMDes pertama di Bali yang berstatus Pengusaha Kena Pajak pada 2017, dan dikukuhkan sebagai badan hukum BUMDes Manik Sedana melalui Peraturan Desa Kutuh Nomor 12 Tahun 2021.</p>
+        <p>Keberhasilan Desa Kutuh tidak semata soal angka. Seluruh strategi pembangunan berpijak pada filosofi Tri Hita Karana, keharmonisan manusia dengan Tuhan, sesama, dan alam, yang diterjemahkan menjadi tata kelola partisipatif: musyawarah desa sebagai forum perencanaan anggaran, kewajiban merekrut tenaga kerja dari warga Kutuh, serta alokasi 5 persen laba BUMDes untuk kegiatan sosial dan pendidikan.</p>
+      </div>
+      <div>
+        <div class="timeline" aria-label="Linimasa transformasi">
+          <div class="tl-item"><div class="thn">Pra-1997</div><div class="isi">Ekonomi bertumpu pada budidaya rumput laut, hasil tidak menentu, akses pantai terbatas.</div></div>
+          <div class="tl-item"><div class="thn">Awal 2000-an</div><div class="isi">Pemotongan tebing kapur membuka akses Pantai Pandawa, awal pengembangan wisata desa.</div></div>
+          <div class="tl-item"><div class="thn">2016</div><div class="isi">BUMDes Kutuh berdiri dengan modal awal Rp1,8 miliar dari alokasi dana desa dalam bentuk aset produktif.</div></div>
+          <div class="tl-item"><div class="thn">2017</div><div class="isi">BUMDes pertama di Bali berstatus Pengusaha Kena Pajak (PKP).</div></div>
+          <div class="tl-item"><div class="thn">2018</div><div class="isi">Pendapatan desa mencapai Rp50 miliar dengan laba bersih Rp14,5 miliar; dijuluki desa terkaya.</div></div>
+          <div class="tl-item"><div class="thn">2021</div><div class="isi">Perdes 12/2021 mengukuhkan BUMDes Manik Sedana sebagai badan hukum.</div></div>
+          <div class="tl-item"><div class="thn">2023</div><div class="isi">Ditetapkan sebagai desa percontohan antikorupsi.</div></div>
+          <div class="tl-item"><div class="thn">2024</div><div class="isi">Juara II Lomba Desa tingkat nasional Regional II, Desa Berprestasi, dan Mangupura Award.</div></div>
+          <div class="tl-item"><div class="thn">2025</div><div class="isi">Kantor baru BUMDes diresmikan langsung oleh menteri sebagai apresiasi pemerintah pusat.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>Rp20 M</b><span>omset tahunan sektor wisata dari tiket masuk destinasi</span><small>Nugroho dkk., 2025</small></div>
+      <div class="stat"><b>Rp29,5 M</b><span>total pendapatan desa dalam APBDes 2025</span><small>APBDes Kutuh, 2025</small></div>
+      <div class="stat"><b>70+</b><span>tenaga kerja lokal terserap unit usaha BUMDes 2020 sampai 2024</span><small>Nugroho dkk., 2025</small></div>
+      <div class="stat"><b>65%</b><span>kontribusi BUMDes terhadap Pendapatan Asli Desa per tahun</span><small>Nugroho dkk., 2025</small></div>
+      <div class="stat"><b>30+</b><span>penghargaan diraih desa sejak 2012, termasuk lomba desa nasional</span><small>Nugroho dkk., 2025</small></div>
+    </div>
+    <div class="foto-grid">
+      <figure>
+        <img src="assets/pandawa-karang.jpg" alt="Batu karang dan tebing kapur di Pantai Pandawa, Desa Kutuh" loading="lazy">
+        <figcaption><b>Tebing kapur Pantai Pandawa</b>Lanskap khas Desa Kutuh: pantai berpasir putih di kaki tebing kapur yang dipotong untuk membuka akses wisata.<br><small>Foto: Jenhan Putra, CC BY-SA 4.0, Wikimedia Commons</small></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pandawa-sign.jpg" alt="Papan nama Pantai Pandawa di tebing kapur" loading="lazy">
+        <figcaption><b>Gerbang kawasan wisata</b>Papan nama Pantai Pandawa di dinding tebing, ikon destinasi yang dikelola BUMDes dan desa adat.<br><small>Foto: Alharomain354, CC BY-SA 4.0, Wikimedia Commons</small></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pandawa-sunset.jpg" alt="Matahari terbenam di Pantai Pandawa" loading="lazy">
+        <figcaption><b>Senja di Pandawa</b>Daya tarik yang menopang omset wisata sekitar Rp20 miliar per tahun.<br><small>Foto: Chaecilly, CC BY-SA 4.0, Wikimedia Commons</small></figcaption>
+      </figure>
+    </div>
+    <div class="umum-grid">
+      <div class="umum"><div class="k">Perbekel</div>I Wayan Mudana, S.T.</div>
+      <div class="umum"><div class="k">Wilayah Administratif</div>4 banjar dinas: Jaba Pura, Panti Giri, Kaja Jati, Petangan</div>
+      <div class="umum"><div class="k">Kantor Desa</div>Jalan Melasti No. 3, Kutuh, Kuta Selatan, Badung, Bali</div>
+      <div class="umum"><div class="k">Situs Resmi</div>kutuh-badung.desa.id</div>
+    </div>
+  </section>
+
+  <section id="keuangan">
+    <div class="sec-head"><span class="no">02</span><h2 class="serif">Posisi Keuangan Desa</h2></div>
+    <p class="lede">Data transparansi anggaran APBDesa 2026 bersumber dari Siskeudes yang dipublikasikan pada situs resmi Desa Kutuh, posisi realisasi per Juli 2026. Batang berwarna menunjukkan realisasi terhadap anggaran; warna emas menandai pos yang realisasinya telah melampaui target.</p>
+
+    <div class="stat-row">
+      <div class="stat"><b>Rp6,06 M</b><span>realisasi pendapatan desa dari anggaran Rp20,68 miliar (29,29%)</span><small>Siskeudes, APBDesa 2026</small></div>
+      <div class="stat"><b>Rp5,05 M</b><span>realisasi belanja desa dari anggaran Rp23,70 miliar (21,31%)</span><small>Siskeudes, APBDesa 2026</small></div>
+      <div class="stat"><b>Rp3,02 M</b><span>pembiayaan desa, terealisasi penuh (100%)</span><small>Siskeudes, APBDesa 2026</small></div>
+    </div>
+
+    <div class="keu-group">
+      <h3>Realisasi Pendapatan per Sumber</h3>
+      <div class="ket">Realisasi | Anggaran, dalam rupiah. Persentase adalah tingkat realisasi terhadap anggaran.</div>
+      <div class="keu-row">
+        <div class="lbl">Hasil Usaha Desa<small>442.442.725 | 400.893.779</small></div>
+        <div class="bar-wrap"><div class="bar-fill lebih" style="width:100%"></div></div>
+        <div class="pct lebih">110,36%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Bagi Hasil Pajak dan Retribusi<small>4.321.230.038 | 17.370.548.474</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:24.88%"></div></div>
+        <div class="pct">24,88%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Dana Desa<small>217.353.000 | 362.255.000</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:60%"></div></div>
+        <div class="pct">60,00%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Alokasi Dana Desa<small>298.003.070 | 762.341.970</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:39.09%"></div></div>
+        <div class="pct">39,09%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Bantuan Keuangan Kabupaten/Kota<small>740.642.241 | 1.664.225.775</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:44.5%"></div></div>
+        <div class="pct">44,50%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Bantuan Keuangan Provinsi<small>15.000.000 | 105.000.000</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:14.29%"></div></div>
+        <div class="pct">14,29%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Bunga Bank<small>23.192.822 | 19.500.000</small></div>
+        <div class="bar-wrap"><div class="bar-fill lebih" style="width:100%"></div></div>
+        <div class="pct lebih">118,94%</div>
+      </div>
+    </div>
+
+    <div class="keu-group">
+      <h3>Realisasi Belanja per Bidang</h3>
+      <div class="ket">Realisasi | Anggaran, dalam rupiah. Persentase adalah tingkat realisasi terhadap anggaran.</div>
+      <div class="keu-row">
+        <div class="lbl">Penyelenggaraan Pemerintahan Desa<small>2.530.417.864 | 11.036.312.271</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:22.93%"></div></div>
+        <div class="pct">22,93%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Pelaksanaan Pembangunan Desa<small>1.046.913.579 | 6.456.816.591</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:16.21%"></div></div>
+        <div class="pct">16,21%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Pembinaan Kemasyarakatan Desa<small>1.366.814.400 | 5.836.290.260</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:23.42%"></div></div>
+        <div class="pct">23,42%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Pemberdayaan Masyarakat Desa<small>85.900.000 | 246.638.000</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:34.83%"></div></div>
+        <div class="pct">34,83%</div>
+      </div>
+      <div class="keu-row">
+        <div class="lbl">Penanggulangan Bencana, Darurat dan Mendesak<small>22.500.000 | 128.390.035</small></div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:17.52%"></div></div>
+        <div class="pct">17,52%</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px;">Dua hal menonjol dari struktur keuangan ini. Pertama, pos Hasil Usaha Desa, yang di dalamnya termasuk kontribusi BUMDes Manik Sedana, telah melampaui target tahunannya sejak pertengahan tahun (110,36%), menandakan mesin ekonomi desa bekerja di atas ekspektasi. Kedua, sumber pendapatan terbesar desa adalah Bagi Hasil Pajak dan Retribusi dengan anggaran Rp17,37 miliar, cerminan besarnya aktivitas ekonomi pariwisata di wilayah Kutuh yang kembali ke desa melalui mekanisme fiskal Kabupaten Badung.</p>
+  </section>
+
+  <section id="bmc-sec">
+    <div class="sec-head"><span class="no">03</span><h2 class="serif">Business Model Canvas BUMDes Manik Sedana</h2></div>
+    <p class="lede">Kanvas berikut memetakan model bisnis BUMDes Manik Sedana secara menyeluruh, disusun dari telaah Peraturan Desa Kutuh Nomor 12 Tahun 2021, publikasi ilmiah terkini, dan analisis kelompok. Klik setiap blok untuk membaca rinciannya.</p>
+    <div class="bmc-wrap">
+      <div class="bmc" role="tablist" aria-label="Sembilan blok Business Model Canvas">
+        <button class="blok" id="mk" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 8</span><span class="blok-j">Mitra Kunci</span>
+          <span class="blok-hint">Desa adat, BUMDA, LPD, Pemkab Badung, mitra swasta</span>
+        </button>
+        <button class="blok" id="ak" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 7</span><span class="blok-j">Aktivitas Utama</span>
+          <span class="blok-hint">Destinasi wisata, energi, aset sewa, pemberdayaan</span>
+        </button>
+        <button class="blok nilai" id="pn" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 2 · Inti</span><span class="blok-j">Proposisi Nilai</span>
+          <span class="blok-hint">Wisata berbasis adat, layanan publik terpadu, ekonomi inklusif warga</span>
+        </button>
+        <button class="blok" id="hp" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 4</span><span class="blok-j">Hubungan Pelanggan</span>
+          <span class="blok-hint">Langganan, musyawarah, edukasi masyarakat</span>
+        </button>
+        <button class="blok" id="sp" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 1</span><span class="blok-j">Segmen Pelanggan</span>
+          <span class="blok-hint">Wisatawan, warga, pelaku usaha, investor, instansi</span>
+        </button>
+        <button class="blok" id="sd" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 6</span><span class="blok-j">Sumber Daya Utama</span>
+          <span class="blok-hint">Destinasi alam, SDM lokal, aset produktif, legalitas</span>
+        </button>
+        <button class="blok" id="sl" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 3</span><span class="blok-j">Saluran</span>
+          <span class="blok-hint">Loket destinasi, situs desa, e-tourism, media sosial</span>
+        </button>
+        <button class="blok" id="bi" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 9</span><span class="blok-j">Struktur Biaya</span>
+          <span class="blok-hint">SDM, operasional unit usaha, pemeliharaan destinasi, pajak</span>
+        </button>
+        <button class="blok" id="pd" role="tab" aria-selected="false" aria-controls="panel-bmc">
+          <span class="blok-k">Blok 5</span><span class="blok-j">Sumber Pendapatan</span>
+          <span class="blok-hint">Tiket wisata, LPG dan BBM, sewa aset, kemitraan</span>
+        </button>
+      </div>
+      <div class="bmc-detail" id="panel-bmc" role="tabpanel" aria-live="polite"></div>
+    </div>
+
+    <div class="highlight-sampah">
+      <h3 class="serif">Sorotan: <span>Pariwisata Berbasis Desa Adat</span></h3>
+      <p>Kekuatan utama model bisnis BUMDes Manik Sedana terletak pada pengelolaan destinasi wisata berbasis desa adat. Pantai Pandawa dan Pantai Gunung Payung dikelola dengan melibatkan masyarakat lokal dalam perencanaan, operasional, dan pelestarian budaya, sehingga omset wisata sekitar Rp20 miliar per tahun berputar kembali ke dalam desa. Pendekatan ini menyeimbangkan misi komersial dan pelayanan publik, sejalan dengan filosofi Tri Hita Karana yang menempatkan harmoni manusia, budaya, dan alam sebagai landasan setiap keputusan usaha.</p>
+    </div>
+  </section>
+
+  <section id="lesson">
+    <div class="sec-head"><span class="no">04</span><h2 class="serif">Lesson Learnt</h2></div>
+    <p class="lede">Enam pelajaran utama yang relevan direplikasi oleh organisasi sektor publik, dirumuskan dari praktik terbaik lokus.</p>
+    <div class="lesson-grid">
+      <div class="lesson"><h3>Potensi lokal sebagai basis bisnis</h3><p>Kutuh tidak menunggu bantuan; desa mengkapitalisasi aset yang dimiliki, tebing, pantai, dan lahan, menjadi portofolio usaha yang menghidupi desa. Transformasi dimulai dari keputusan berani membuka akses Pantai Pandawa.</p></div>
+      <div class="lesson"><h3>Tata kelola ganda yang saling menguatkan</h3><p>BUMDes menangani aspek komersial, sementara BUMDA menjaga nilai adat dan modal sosial. Pembagian peran ini meredam konflik kepentingan antara logika bisnis dan logika budaya.</p></div>
+      <div class="lesson"><h3>Kepatuhan dan legalitas sebagai strategi</h3><p>Status badan hukum dan Pengusaha Kena Pajak pertama di Bali menunjukkan bahwa formalisasi bukan beban, melainkan fondasi kepercayaan bagi mitra, investor, dan pemerintah.</p></div>
+      <div class="lesson"><h3>Inklusivitas tenaga kerja lokal</h3><p>Setiap pembukaan unit usaha diriset kesesuaiannya dengan warga, dan pekerjanya wajib berasal dari warga Kutuh. Pertumbuhan usaha otomatis menjadi pertumbuhan lapangan kerja desa.</p></div>
+      <div class="lesson"><h3>Reinvestasi sosial yang terlembaga</h3><p>Alokasi 5 persen laba BUMDes untuk kegiatan sosial dan pendidikan menjadikan redistribusi manfaat bagian dari model bisnis, bukan kemurahan hati sesaat.</p></div>
+      <div class="lesson"><h3>Kearifan lokal sebagai kerangka keberlanjutan</h3><p>Tri Hita Karana berfungsi layaknya kerangka ESG versi desa: menyeimbangkan profit, harmoni sosial, dan kelestarian alam dalam setiap keputusan usaha.</p></div>
+    </div>
+  </section>
+
+  <section id="diagnosa">
+    <div class="sec-head"><span class="no">05</span><h2 class="serif">Diagnosa dan Ide Penyelesaian</h2></div>
+    <p class="lede">Sesuai Panduan Wawancara Studi Lapangan, bagian ini memetakan kesenjangan kinerja lokus, selisih antara kondisi saat ini dan kondisi yang diharapkan, lalu menawarkan solusi kreatif yang realistis. Pemetaan berikut merupakan draft pra-lapangan yang disusun dari telaah literatur dan akan divalidasi dengan data wawancara.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Format 3. Pemetaan Kesenjangan Kinerja (Diagnosa)</caption>
+        <thead>
+          <tr><th>No</th><th>Kondisi Saat Ini</th><th>Kondisi Diharapkan</th><th>Akar Masalah (Dugaan)</th><th>Sumber Data</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="no">1</td><td>Pendapatan desa besar, tetapi bukti peningkatan kesejahteraan per kapita warga belum terdokumentasi eksplisit.</td><td>Dampak ekonomi terukur dan terdistribusi merata hingga level rumah tangga.</td><td>Belum ada sistem pengukuran dampak kesejahteraan yang sistematis dan terpublikasi.</td><td>Nugroho dkk. (2025)</td></tr>
+          <tr><td class="no">2</td><td>Toko grosir milik BUMDes kurang berkembang, kalah bersaing dengan ritel modern berjejaring.</td><td>Seluruh unit usaha sehat dan berdaya saing.</td><td>Model bisnis unit grosir belum terdiferensiasi dari ritel modern.</td><td>Nugroho dkk. (2025)</td></tr>
+          <tr><td class="no">3</td><td>Akses air bersih terbatas karena topografi bukit kapur; baru tersedia empat titik sumber air.</td><td>Layanan air bersih andal bagi warga dan penopang industri wisata.</td><td>Infrastruktur dasar belum sebanding dengan laju pertumbuhan ekonomi kawasan.</td><td>Nugroho dkk. (2025)</td></tr>
+          <tr><td class="no">4</td><td>Keberhasilan desa melekat kuat pada figur kepala desa dan pimpinan BUMDes yang visioner.</td><td>Kinerja organisasi berkelanjutan lintas pergantian kepemimpinan.</td><td>Sistem kaderisasi dan standardisasi tata kelola belum sepenuhnya terlembaga.</td><td>Nugroho dkk. (2025); analisis kelompok</td></tr>
+          <tr><td class="no">5</td><td>Data kinerja usaha belum seluruhnya terpublikasi dan belum mendukung pengambilan keputusan real time.</td><td>Data kinerja terintegrasi, real time, dan transparan bagi publik.</td><td>Digitalisasi pelaporan antar unit usaha masih parsial.</td><td>Nugroho dkk. (2025); analisis kelompok</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Format 4. Rumusan Ide Penyelesaian</caption>
+        <thead>
+          <tr><th>No</th><th>Masalah</th><th>Ide Solusi Kreatif / Inovatif</th><th>Manfaat</th><th>Kelayakan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="no">1</td><td>Dampak kesejahteraan belum terukur</td><td>Dashboard Kesejahteraan Warga: survei berkala pendapatan rumah tangga terintegrasi data BUMDes dan APBDes, ditampilkan di situs desa.</td><td>Bukti dampak untuk kebijakan, transparansi, dan replikasi nasional.</td><td><span class="pill t">Tinggi</span></td></tr>
+          <tr><td class="no">2</td><td>Unit grosir kalah bersaing</td><td>Reposisi grosir menjadi hub logistik UMKM dan pemasok kebutuhan hotel serta villa dengan sistem pemesanan digital.</td><td>Unit kembali produktif dan menyerap produk warga.</td><td><span class="pill t">Tinggi</span></td></tr>
+          <tr><td class="no">3</td><td>Keterbatasan air bersih</td><td>Kemitraan SPAM dan pemanenan air hujan pada fasilitas publik dan destinasi wisata milik BUMDes.</td><td>Ketahanan air bagi warga dan industri wisata.</td><td><span class="pill s">Sedang</span></td></tr>
+          <tr><td class="no">4</td><td>Ketergantungan pada figur pemimpin</td><td>Program kaderisasi manajer BUMDes bersertifikat serta SOP korporasi desa yang terdokumentasi dan diaudit berkala.</td><td>Keberlanjutan kinerja lintas suksesi kepemimpinan.</td><td><span class="pill t">Tinggi</span></td></tr>
+          <tr><td class="no">5</td><td>Pelaporan belum real time</td><td>Integrasi sistem informasi keuangan seluruh unit usaha menuju smart village dengan laporan publik triwulanan.</td><td>Keputusan berbasis data dan penguatan akuntabilitas.</td><td><span class="pill t">Tinggi</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="catatan"><b>Catatan metodologis.</b> Diagnosa di atas disusun dengan prinsip apresiatif sesuai panduan: kesenjangan dibaca sebagai peluang perbaikan sebuah lokus berpredikat best practice, bukan kekurangan. Validasi lapangan menggunakan pertanyaan Prioritas 1 sampai 3 dari Panduan Wawancara Studi Lapangan PKA XVIII, dan tabel ini akan dimutakhirkan setelah catatan data serta catatan interpretasi kunjungan terkumpul.</div>
+  </section>
+
+  <section id="tim">
+    <div class="sec-head"><span class="no">06</span><h2 class="serif">Kelompok II</h2></div>
+    <p class="lede">Ketua kelompok: <b>Rully Devriantoro</b>. Pembagian peran penyusunan laporan sebagai berikut.</p>
+    <div class="tim-grid">
+      <div class="tim"><div class="peran">Profil Lokus</div><ul><li>Khusnul Arifin</li><li>Muhammad Ali Shodiqin</li></ul></div>
+      <div class="tim bmc-tim"><div class="peran">Penyusun BMC</div><ul><li>Donny Maha Putra</li><li>Agus Hery Winarso</li><li>Muslim</li><li>Didit Prayudi Sidharta</li></ul></div>
+      <div class="tim"><div class="peran">Lesson Learnt</div><ul><li>Wahyu Indrawan</li><li>Hari Santoso</li><li>Umardani Yusuf Wahyudi</li></ul></div>
+      <div class="tim"><div class="peran">Diagnosis dan Penyelesaian</div><ul><li>Moch. Faisol</li><li>Arifin Rosidi</li><li>Lia Sahara</li></ul></div>
+      <div class="tim"><div class="peran">Editor dan Penyelesaian</div><ul><li>Cahyo Prasetiadi</li><li>Nur Fathoni</li><li>Pujo Hariyanto</li></ul></div>
+      <div class="tim"><div class="peran">Dokumentasi dan PPT</div><ul><li>Tulus Suparto</li><li>Ranu Fatah Wijoyo</li></ul></div>
+    </div>
+  </section>
+
+  <section id="referensi">
+    <div class="sec-head"><span class="no">07</span><h2 class="serif">Referensi</h2></div>
+    <div class="ref" style="margin-top: 22px;">
+      <p>Nugroho, T. P., Titasari, S. H., Pradipa, R. A., Mayangsari, P. T., Mujiono, K., Ardinsah, A., Sugiantoro, &amp; Hasanah, N. (2025). Strategi pembangunan ekonomi Desa Kutuh sebagai desa mandiri di Kabupaten Badung, Bali. <i>Jurnal Pendidikan Ekonomi Undiksha, 17</i>(3), 554-568. https://doi.org/10.23887/jjpe.v17i3.97396</p>
+      <p>Peraturan Desa Kutuh Nomor 12 Tahun 2021 tentang Pendirian Badan Usaha Milik Desa Manik Sedana Desa Kutuh. (2021). Lembaran Desa Kutuh Tahun 2021 Nomor 12.</p>
+      <p>Peraturan Pemerintah Republik Indonesia Nomor 11 Tahun 2021 tentang Badan Usaha Milik Desa. (2021). Lembaran Negara Republik Indonesia Tahun 2021 Nomor 21.</p>
+      <p>Syauket, A., &amp; Indriasari, R. (2024). Optimalisasi penggunaan dana desa membawa Desa Kutuh Badung-Bali menjadi smart village. <i>Jurnal Kajian Ilmiah, 24</i>(2), 101-114.</p>
+      <p>Yudartha, I. P. D., &amp; Agung, I. G. B. W. (2024). The synergy of BUMDes (village-owned enterprises) and BUMDA (customary village-owned enterprises) in the perspective of dynamic governance in Kutuh Village, Badung District, Bali. <i>International Journal of Social Science and Human Research, 7</i>(10), 7733-7740.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="poleng" style="max-width: 220px; margin: 0 auto 22px;"></div>
+  Laporan Studi Lapangan Kinerja Organisasi · Pelatihan Kepemimpinan Administrator Angkatan XVIII · Tahun Anggaran 2026<br>
+  Kelompok II · Lokus BUMDes Manik Sedana Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali · Kunjungan 27 Juli 2026<br>
+  <span style="font-size: 0.72rem;">Foto-foto Pantai Pandawa dari Wikimedia Commons, lisensi CC BY-SA, karya Riska Diamitri, Jenhan Putra, Alharomain354, dan Chaecilly.</span>
+</footer>
+
+<script>
+  const DETAIL = {
+    sp: {
+      judul: "Blok 1 · Segmen Pelanggan",
+      sumber: "Sumber: Nugroho dkk. (2025); Perdes Kutuh 12/2021; analisis kelompok",
+      isi: [
+        "Wisatawan domestik dan mancanegara pengunjung Pantai Pandawa dan Pantai Gunung Payung.",
+        "Warga Desa Kutuh sebagai pelanggan pangkalan LPG dan layanan publik desa.",
+        "Pelaku usaha lokal, hotel, villa, dan homestay yang membutuhkan pasokan barang dan energi.",
+        "Investor dan penyewa aset: papan reklame, villa wisata, gedung serbaguna, dan properti kawasan tebing.",
+        "Instansi pemerintah dan lembaga pendidikan melalui program edukatif Kunjungan Desa (benchmarking desa mandiri)."
+      ]
+    },
+    pn: {
+      judul: "Blok 2 · Proposisi Nilai",
+      sumber: "Sumber: Nugroho dkk. (2025); Yudartha & Agung (2024); analisis kelompok",
+      isi: [
+        "Pengalaman wisata pantai otentik berbasis desa adat dan budaya Bali, dikelola langsung oleh masyarakat dengan filosofi Tri Hita Karana.",
+        "Layanan publik desa terpadu: ketersediaan LPG dan rencana BBM Pertashop dengan harga terjangkau bagi warga.",
+        "Ekonomi inklusif: seluruh unit usaha wajib mempekerjakan warga Kutuh sehingga nilai ekonomi berputar di dalam desa.",
+        "Keberlanjutan lingkungan: kebersihan dan penataan kawasan destinasi terjaga sebagai bagian dari daya tarik wisata.",
+        "Kredibilitas kelembagaan: badan hukum resmi dan status PKP menjamin kepastian bagi mitra dan investor."
+      ]
+    },
+    sl: {
+      judul: "Blok 3 · Saluran",
+      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      isi: [
+        "Loket tiket dan gerai layanan langsung di destinasi Pantai Pandawa dan Gunung Payung.",
+        "Situs resmi desa wisata dan platform e-tourism untuk menjangkau wisatawan global.",
+        "Media sosial desa dan pemberitaan penghargaan sebagai kanal promosi organik.",
+        "Kerja sama biro perjalanan dan pihak ketiga pengelola paket wisata.",
+        "Forum musyawarah desa dan banjar sebagai kanal sosialisasi layanan kepada warga."
+      ]
+    },
+    hp: {
+      judul: "Blok 4 · Hubungan Pelanggan",
+      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      isi: [
+        "Hubungan berlangganan jangka panjang untuk layanan sampah dan energi rumah tangga.",
+        "Keterlibatan komunitas: warga adalah pelanggan sekaligus pemilik dan pekerja, dipertemukan dalam forum terbuka pelaporan kinerja.",
+        "Pelayanan responsif atas keluhan fasilitas, dari jalan berlubang sampai jaringan listrik, yang ditangani cepat oleh desa.",
+        "Edukasi dan penyuluhan pemilahan sampah serta program sadar wisata (Pokdarwis).",
+        "Relasi kemitraan formal dengan penyewa aset dan investor melalui kontrak."
+      ]
+    },
+    pd: {
+      judul: "Blok 5 · Sumber Pendapatan",
+      sumber: "Sumber: Nugroho dkk. (2025); APBDes Kutuh (2025)",
+      isi: [
+        "Tiket masuk destinasi wisata dengan omset sekitar Rp20 miliar per tahun, ditambah parkir dan jasa layanan wisata.",
+        "Hasil Usaha Desa pada APBDesa 2026 terealisasi Rp442 juta, melampaui target tahunan (110,36%).",
+        "Pangkalan LPG dan rencana Pertashop kapasitas 3.000 liter dengan proyeksi laba bersih Rp120 juta per tahun.",
+        "Sewa aset produktif: papan reklame, villa wisata, gedung serbaguna, spa, dan properti kawasan tebing.",
+        "Program Kunjungan Desa berbayar serta kemitraan pengelolaan wisata dengan pihak ketiga.",
+        "Kontribusi ke desa: lebih dari 65 persen Pendapatan Asli Desa bersumber dari BUMDes."
+      ]
+    },
+    sd: {
+      judul: "Blok 6 · Sumber Daya Utama",
+      sumber: "Sumber: Nugroho dkk. (2025); Perdes Kutuh 12/2021",
+      isi: [
+        "Aset destinasi alam: Pantai Pandawa, Pantai Gunung Payung, dan lahan produktif kawasan tebing kapur.",
+        "SDM lokal: lebih dari 70 tenaga kerja aktif dari warga Kutuh dengan dukungan pelatihan berkala.",
+        "Aset operasional: fasilitas destinasi, gedung serbaguna, pangkalan gas, dan sarana penunjang unit usaha.",
+        "Legalitas: badan hukum BUMDes Manik Sedana (Perdes 12/2021) dan status Pengusaha Kena Pajak.",
+        "Modal sosial dan kelembagaan adat: sinergi dengan BUMDA dan pembiayaan LPD berbunga rendah."
+      ]
+    },
+    ak: {
+      judul: "Blok 7 · Aktivitas Utama",
+      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      isi: [
+        "Pengelolaan destinasi wisata: tiket, parkir, kebersihan, keamanan, dan penataan pedagang pantai.",
+        "Distribusi energi: operasional pangkalan LPG dan penyiapan Pertashop.",
+        "Pengelolaan aset sewa dan kemitraan investasi properti serta reklame.",
+        "Pemberdayaan: pelatihan kerja, pengembangan UMKM, dan promosi industri kreatif lokal.",
+        "Pelaporan kinerja terstruktur per unit usaha kepada pemerintah desa dan forum terbuka warga."
+      ]
+    },
+    mk: {
+      judul: "Blok 8 · Mitra Kunci",
+      sumber: "Sumber: Yudartha & Agung (2024); Perdes Kutuh 12/2021",
+      isi: [
+        "Pemerintah Desa Kutuh dan BPD sebagai pemilik dan pengawas kebijakan.",
+        "Desa Adat Kutuh dan BUMDA: pembagian peran komersial dan penjaga nilai adat.",
+        "Lembaga Perkreditan Desa (LPD) untuk akses pembiayaan warga dan usaha.",
+        "Pemerintah Kabupaten Badung dan DPMD sebagai pembina serta pemberi dukungan program.",
+        "Mitra swasta: investor properti, biro perjalanan, dan platform e-tourism.",
+        "Otoritas pajak dan lembaga sertifikasi untuk kepatuhan sebagai Pengusaha Kena Pajak."
+      ]
+    },
+    bi: {
+      judul: "Blok 9 · Struktur Biaya",
+      sumber: "Sumber: Nugroho dkk. (2025); APBDes Kutuh (2025); analisis kelompok",
+      isi: [
+        "Belanja pegawai: gaji dan insentif tenaga kerja lokal seluruh unit usaha.",
+        "Operasional unit usaha: logistik, utilitas, dan pemeliharaan sarana kerja.",
+        "Investasi dan pemeliharaan destinasi wisata serta fasilitas publik pendukung.",
+        "Kewajiban perpajakan sebagai Pengusaha Kena Pajak dan biaya kepatuhan badan hukum.",
+        "Reinvestasi sosial terlembaga: alokasi 5 persen laba untuk kegiatan sosial dan pendidikan warga."
+      ]
+    }
+  };
+
+  const panel = document.getElementById("panel-bmc");
+  const bloks = document.querySelectorAll(".blok");
+  let aktif = null;
+  bloks.forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (aktif === b.id) {
+        panel.classList.remove("tampil");
+        b.classList.remove("aktif");
+        b.setAttribute("aria-selected", "false");
+        aktif = null;
+        return;
+      }
+      bloks.forEach(function (x) { x.classList.remove("aktif"); x.setAttribute("aria-selected", "false"); });
+      b.classList.add("aktif");
+      b.setAttribute("aria-selected", "true");
+      aktif = b.id;
+      const d = DETAIL[b.id];
+      panel.innerHTML = "<h3 class=\"serif\">" + d.judul + "</h3><div class=\"sumberket\">" + d.sumber + "</div><ul>" +
+        d.isi.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>";
+      panel.classList.remove("tampil");
+      void panel.offsetWidth;
+      panel.classList.add("tampil");
+    });
+  });
+</script>
