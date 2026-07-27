@@ -94,8 +94,11 @@
     background: var(--ground);
     color: var(--ink);
     font-family: "Segoe UI", "Noto Sans", system-ui, -apple-system, sans-serif;
-    line-height: 1.65;
-    font-size: 16.5px;
+    line-height: 1.72;
+    font-size: 16px;
+    letter-spacing: 0.002em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
   .serif { font-family: "Sitka Heading", Charter, "Bitstream Charter", Cambria, Georgia, serif; }
 
@@ -230,6 +233,17 @@
   main { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
   section { padding: 64px 0 24px; scroll-margin-top: 70px; }
   .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .sec-top {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+    gap: 10px 48px;
+    align-items: start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 940px) { .sec-top { grid-template-columns: 1fr; gap: 6px; } }
+  .sec-top .sec-head { margin-bottom: 0; }
+  .sec-top .lede { margin-top: 0; max-width: none; }
   .sec-head .no {
     font-family: Charter, Cambria, Georgia, serif;
     color: var(--tembaga);
@@ -243,15 +257,69 @@
     text-wrap: balance;
     letter-spacing: -0.01em;
   }
-  .lede { max-width: 70ch; color: var(--ink-soft); margin-top: 10px; }
-  p { max-width: 72ch; }
+  .lede {
+    max-width: 74ch;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+  p { margin: 0 0 16px; }
+  section > p:last-of-type { margin-bottom: 0; }
+
+  /* Kolom ganda untuk narasi panjang agar tidak menyisakan ruang kosong di kanan */
+  .prosa { margin-top: 20px; }
+  @media (min-width: 940px) {
+    .prosa { column-count: 2; column-gap: 44px; }
+    .prosa p { margin: 0 0 15px; }
+  }
+  .prosa p:last-child { margin-bottom: 0; }
 
   .stat-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 14px;
     margin: 30px 0 10px;
   }
+  @media (min-width: 900px) { .stat-row.tiga { grid-template-columns: repeat(3, 1fr); } }
+
+  .paparan-atas { display: grid; grid-template-columns: 1.15fr 1fr; gap: 30px; align-items: stretch; margin-top: 22px; }
+  @media (max-width: 900px) { .paparan-atas { grid-template-columns: 1fr; } }
+  .paparan-atas .teks > p:first-child { margin-top: 0; }
+  .paparan-foto {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+  }
+  .paparan-foto img { width: 100%; flex: 1 1 auto; min-height: 240px; object-fit: cover; display: block; }
+  .paparan-foto figcaption { padding: 12px 16px 14px; font-size: 0.8rem; color: var(--ink-soft); }
+  .paparan-foto figcaption b { display: block; color: var(--ink); font-size: 0.88rem; margin-bottom: 2px; }
+
+  .topik-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 30px 0 4px; }
+  .topik {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .topik.fokus { border-color: var(--grafit); box-shadow: inset 0 0 0 1px var(--grafit); background: var(--surface); }
+  .topik .tag {
+    display: inline-block;
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--tembaga);
+    margin-bottom: 6px;
+  }
+  .topik.fokus .tag { color: var(--grafit); }
+  .topik h3 { margin: 0 0 8px; font-size: 1.02rem; }
+  .topik p { font-size: 0.89rem; color: var(--ink-soft); margin: 0; max-width: none; }
   .stat {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -488,10 +556,9 @@
     border-left: 4px solid var(--tembaga);
     background: color-mix(in srgb, var(--tembaga) 7%, var(--surface));
     border-radius: 0 12px 12px 0;
-    padding: 14px 20px;
+    padding: 16px 22px;
     font-size: 0.9rem;
     color: var(--ink-soft);
-    max-width: 78ch;
     margin-top: 26px;
   }
   .catatan b { color: var(--ink); }
@@ -517,7 +584,7 @@
 
   .galeri {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 16px;
     margin-top: 26px;
   }
@@ -554,7 +621,6 @@
     background: var(--card);
     color: var(--ink-soft);
     font-size: 0.9rem;
-    max-width: 78ch;
   }
   .galeri-kosong b { color: var(--ink); }
   .galeri-kosong code {
@@ -664,14 +730,14 @@
     <div class="two-col">
       <div>
         <p class="lede">Desa Kutuh berdiri di atas perbukitan kapur di ujung selatan Bali, berbatasan langsung dengan pesisir yang kini menjadi ikon pariwisata: Pantai Pandawa dan Pantai Gunung Payung. Sebelum tahun 1997, mayoritas warganya adalah petani rumput laut dengan penghasilan yang bergantung pada musim, sementara akses ke pantai tertutup dinding tebing.</p>
-        <p>Titik balik terjadi ketika pemerintah desa dan masyarakat memotong tebing kapur untuk membuka akses ke Pantai Pandawa. Langkah tersebut menjadi awal transformasi ekonomi berbasis potensi lokal yang dikelola secara kelembagaan melalui BUMDes, Badan Usaha Milik Desa Adat (BUMDA), dan Lembaga Perkreditan Desa (LPD). BUMDes Kutuh berdiri pada 2016 dengan modal awal Rp1,8 miliar dari alokasi dana desa, menjadi BUMDes pertama di Bali yang berstatus Pengusaha Kena Pajak pada 2017, dan dikukuhkan sebagai badan hukum BUMDes Manik Sedana melalui Peraturan Desa Kutuh Nomor 12 Tahun 2021.</p>
+        <p>Titik balik terjadi ketika pemerintah desa dan masyarakat memotong tebing kapur untuk membuka akses ke pantai. Langkah tersebut menjadi awal transformasi ekonomi berbasis potensi lokal yang dikelola secara kelembagaan melalui dua badan usaha dengan mandat berbeda, yaitu BUMDA Desa Adat sejak 2014 untuk sektor pariwisata dan BUMDesa sejak 2016 untuk sektor non pariwisata, didukung Lembaga Perkreditan Desa. BUMDesa Kutuh menjadi yang pertama di Bali berstatus Pengusaha Kena Pajak pada 2017, dan dikukuhkan sebagai badan hukum BUMDesa Manik Sedana melalui Peraturan Desa Kutuh Nomor 12 Tahun 2021 dengan total penyertaan modal Rp2,13 miliar hingga 2025.</p>
         <p>Keberhasilan Desa Kutuh tidak semata soal angka. Seluruh strategi pembangunan berpijak pada filosofi Tri Hita Karana, keharmonisan manusia dengan Tuhan, sesama, dan alam, yang diterjemahkan menjadi tata kelola partisipatif: musyawarah desa sebagai forum perencanaan anggaran, kewajiban merekrut tenaga kerja dari warga Kutuh, serta alokasi 5 persen laba BUMDes untuk kegiatan sosial dan pendidikan.</p>
       </div>
       <div>
         <div class="timeline" aria-label="Linimasa transformasi">
           <div class="tl-item"><div class="thn">Pra-1997</div><div class="isi">Ekonomi bertumpu pada budidaya rumput laut, hasil tidak menentu, akses pantai terbatas.</div></div>
           <div class="tl-item"><div class="thn">Awal 2000-an</div><div class="isi">Pemotongan tebing kapur membuka akses Pantai Pandawa, awal pengembangan wisata desa.</div></div>
-          <div class="tl-item"><div class="thn">2016</div><div class="isi">BUMDes Kutuh berdiri dengan modal awal Rp1,8 miliar dari alokasi dana desa dalam bentuk aset produktif.</div></div>
+          <div class="tl-item"><div class="thn">2016</div><div class="isi">BUMDesa Kutuh berdiri, melengkapi BUMDA Desa Adat yang lebih dulu ada sejak 2014, dengan penyertaan modal awal Rp216,02 juta dari alokasi dana desa.</div></div>
           <div class="tl-item"><div class="thn">2017</div><div class="isi">BUMDes pertama di Bali berstatus Pengusaha Kena Pajak (PKP).</div></div>
           <div class="tl-item"><div class="thn">2018</div><div class="isi">Pendapatan desa mencapai Rp50 miliar dengan laba bersih Rp14,5 miliar; dijuluki desa terkaya.</div></div>
           <div class="tl-item"><div class="thn">2021</div><div class="isi">Perdes 12/2021 mengukuhkan BUMDes Manik Sedana sebagai badan hukum.</div></div>
@@ -682,11 +748,12 @@
       </div>
     </div>
     <div class="stat-row">
-      <div class="stat"><b>Rp20 M</b><span>omset tahunan sektor wisata dari tiket masuk destinasi</span><small>Nugroho dkk., 2025</small></div>
-      <div class="stat"><b>Rp29,5 M</b><span>total pendapatan desa dalam APBDes 2025</span><small>APBDes Kutuh, 2025</small></div>
-      <div class="stat"><b>70+</b><span>tenaga kerja lokal terserap unit usaha BUMDes 2020 sampai 2024</span><small>Nugroho dkk., 2025</small></div>
-      <div class="stat"><b>65%</b><span>kontribusi BUMDes terhadap Pendapatan Asli Desa per tahun</span><small>Nugroho dkk., 2025</small></div>
-      <div class="stat"><b>30+</b><span>penghargaan diraih desa sejak 2012, termasuk lomba desa nasional</span><small>Nugroho dkk., 2025</small></div>
+      <div class="stat"><b>2002</b><span>Kutuh kembali menjadi desa definitif, terpisah dari Desa Ungasan</span><small>Paparan Perbekel, 2026</small></div>
+      <div class="stat"><b>2017</b><span>berstatus desa mandiri dengan nol persen kemiskinan dan pengangguran</span><small>Paparan Perbekel, 2026</small></div>
+      <div class="stat"><b>4 banjar</b><span>wilayah dinas: Jaba Pura, Panti Giri, Kaja Jati, dan Petangan</span><small>Situs resmi Desa Kutuh</small></div>
+      <div class="stat"><b>25 orang</b><span>perangkat desa, empat belas di antaranya berpendidikan sarjana</span><small>Paparan Perbekel, 2026</small></div>
+      <div class="stat"><b>Rp20,68 M</b><span>total pendapatan pada APBDesa Perubahan 2026</span><small>Siskeudes, APBDesa 2026</small></div>
+      <div class="stat"><b>7 unit</b><span>usaha desa: empat unit BUMDA di sektor pariwisata dan tiga unit BUMDesa non pariwisata</span><small>Paparan Perbekel, 2026</small></div>
     </div>
     <div class="foto-grid">
       <figure>
@@ -699,7 +766,7 @@
       </figure>
       <figure>
         <img src="assets/pandawa-sunset.jpg" alt="Matahari terbenam di Pantai Pandawa" loading="lazy">
-        <figcaption><b>Senja di Pandawa</b>Daya tarik yang menopang omset wisata sekitar Rp20 miliar per tahun.<br><small>Foto: Chaecilly, CC BY-SA 4.0, Wikimedia Commons</small></figcaption>
+        <figcaption><b>Senja di Pandawa</b>Daya tarik utama kawasan yang dikelola BUMDA Desa Adat Kutuh.<br><small>Foto: Chaecilly, CC BY-SA 4.0, Wikimedia Commons</small></figcaption>
       </figure>
     </div>
     <div class="umum-grid">
@@ -711,11 +778,33 @@
   </section>
 
   <section id="paparan">
-    <div class="sec-head"><span class="no">02</span><h2 class="serif">Paparan Kepala Desa: Pokok dan Kesimpulan</h2></div>
-    <p class="lede">Ringkasan materi yang disampaikan Perbekel Kutuh I Wayan Mudana, S.T., kepada peserta PKA Angkatan XVIII Balai Diklat Keuangan Denpasar pada 27 Juli 2026, dengan tema Transformasi Desa Mandiri Mewujudkan Masyarakat Kutuh Berdaya Saing Global.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">02</span><h2 class="serif">Paparan Kepala Desa: Pokok dan Kesimpulan</h2></div><p class="lede">Ringkasan materi yang disampaikan Perbekel Kutuh I Wayan Mudana, S.T., kepada peserta PKA Angkatan XVIII Balai Diklat Keuangan Denpasar pada 27 Juli 2026, dengan tema Transformasi Desa Mandiri Mewujudkan Masyarakat Kutuh Berdaya Saing Global.</p></div>
 
-    <p>Paparan dibuka dengan tesis yang tegas bahwa kemandirian desa tidak lahir dari besarnya bantuan yang diterima, melainkan dari kemauan, kemampuan, dan keberanian mengambil keputusan. Tiga kata yang diringkas menjadi 3K itu menjadi penutup sekaligus benang merah seluruh materi.</p>
+    <div class="paparan-atas">
+      <div class="teks">
+        <p>Paparan dibuka dengan tesis yang tegas bahwa kemandirian desa tidak lahir dari besarnya bantuan yang diterima, melainkan dari kemauan, kemampuan, dan keberanian mengambil keputusan. Tiga kata yang diringkas menjadi 3K itu menjadi penutup sekaligus benang merah seluruh materi.</p>
+        <p>Materi yang disampaikan mencakup dua topik besar yang menjadi sasaran studi lapangan angkatan ini, yaitu tata kelola persampahan dan pengelolaan badan usaha milik desa. Laporan Kelompok II ini mengambil fokus pada topik kedua, sementara pendalaman atas topik persampahan menjadi bagian Kelompok I. Rangkuman di bawah tetap menyajikan keduanya secara utuh agar konteks paparan tidak terpotong.</p>
+      </div>
+      <figure class="paparan-foto">
+        <img src="assets/perbekel-paparan.jpg" alt="Perbekel Kutuh I Wayan Mudana menyampaikan paparan di hadapan peserta PKA Angkatan XVIII">
+        <figcaption><b>I Wayan Mudana, S.T.</b>Perbekel Kutuh menutup paparan dengan pesan 3K: kemauan, kemampuan, dan keberanian. Kutuh, 27 Juli 2026.</figcaption>
+      </figure>
+    </div>
 
+    <div class="topik-grid">
+      <div class="topik">
+        <span class="tag">Topik I &middot; Kelompok I</span>
+        <h3>Tata Kelola Persampahan</h3>
+        <p>Alur empat tahap dari regulasi desa, edukasi di hulu, pengangkutan terpilah, hingga pengolahan di TPST Tebo Kauh, beserta inovasi ekonomi sirkular Tebo Green Loop dan bank sampah Plastic Exchange.</p>
+      </div>
+      <div class="topik fokus">
+        <span class="tag">Topik II &middot; Kelompok II &middot; Fokus laporan ini</span>
+        <h3>Pengelolaan BUMDes Manik Sedana</h3>
+        <p>Model kelembagaan ekonomi desa melalui pembagian peran BUMDA dan BUMDesa, tiga unit usaha non pariwisata, penyertaan modal, pertumbuhan laba, serta serapan tenaga kerja warga Kutuh.</p>
+      </div>
+    </div>
+
+    <div class="prosa">
     <p>Perjalanan Desa Kutuh dimulai jauh sebelum kemerdekaan sebagai desa yang berdiri sendiri, sebelum dilebur ke dalam Desa Ungasan pada masa pendudukan Jepang tahun 1942 dan hanya berstatus banjar dinas. Perjuangan pemekaran yang dirintis sejak 1997 membuahkan hasil pada 12 Maret 2002 ketika Kutuh kembali ditetapkan sebagai desa definitif. Secara ekonomi, warga semula bertumpu pada pertanian lahan kering, lalu beralih ke budidaya rumput laut yang mencapai puncaknya pada 2007 hingga mampu memasok kebutuhan ekspor dan mengantar desa ke angka nol persen kemiskinan pada 2011. Ketika komoditas itu runtuh akibat hama dan perubahan ekosistem laut, pembukaan akses ke Pantai Melasti yang semula ditujukan untuk mempermudah upacara adat justru membuka pintu masuknya wisatawan. Melalui musyawarah desa, pemerintah desa sepakat menggarap sektor pariwisata secara serius, dan sejak 2017 Desa Kutuh berstatus desa mandiri dengan nol persen kemiskinan sekaligus nol persen pengangguran.</p>
 
     <p>Bagian tata kelola menjadi porsi terbesar paparan. Perbekel menempatkan kepemimpinan transformatif sebagai penggerak budaya antikorupsi melalui lima jalur, yaitu visi bersama, ekosistem kerja kolaboratif berupa ruang kerja terpadu, gerai pelayanan satu pintu, sistem penghargaan berbasis kinerja, dan pemberian ruang inovasi bagi perangkat desa. Ruang kerja terpadu disebut secara khusus sebagai pengendali gratifikasi, karena pelayanan berlangsung terbuka dan tidak lagi tertutup di ruang masing masing. Pengelolaan keuangan berjalan di atas Siskeudes dengan transaksi non tunai serta publikasi berkala melalui baliho, papan pengumuman, videotron, situs desa, dan media sosial. Indeks Kepuasan Masyarakat 2025 tercatat 87,15 dengan kategori baik, sementara sembilan belas pengaduan yang masuk sepanjang 2025 hingga 2026 seluruhnya telah ditindaklanjuti.</p>
@@ -725,8 +814,9 @@
     <p>Tata kelola persampahan disajikan sebagai inovasi unggulan dengan alur empat tahap, dari instrumen kebijakan berupa peraturan desa, edukasi dan perubahan perilaku di hulu, pengangkutan terpilah oleh unit BUMDesa, hingga pengolahan di hilir pada TPST Tebo Kauh. Fasilitas yang dibangun pada 2024 di atas lahan Desa Adat seluas dua puluh are itu mempekerjakan sembilan belas orang dan menangani 8,5 sampai 15 ton sampah per hari dengan tingkat penanganan mencapai seratus persen, melayani 1.019 pelanggan dari 1.319 kepala keluarga. Melalui inovasi Tebo Green Loop, sampah organik diolah menjadi kompos dan echo enzyme, sedangkan residu pembakaran dicetak menjadi paving block yang kembali dipakai untuk fasilitas umum. Pemakaian plastik sekali pakai pada kegiatan pemerintah desa dilaporkan turun sembilan puluh delapan persen. Kebersihan dan estetika lingkungan memperoleh porsi 12,7 persen dari rencana belanja desa 2025 atau sekitar Rp4 miliar, dengan total penyiapan sarana prasarana termasuk TPST melampaui Rp7 miliar.</p>
 
     <p>Paparan ditutup dengan dampak yang melampaui batas desa. Dalam dua tahun terakhir masuk enam puluh lima investasi dengan nilai lebih dari Rp11,7 triliun, mayoritas pada sektor akomodasi wisata. Sepanjang 2023 hingga 2024 sekitar enam ribu orang dari 102 instansi se Indonesia berkunjung untuk belajar, dan sebagian di antaranya telah berhasil mereplikasi model Kutuh serta meraih prestasi, di antaranya Desa Tegal Harum, Desa Ciberuwetan, dan Desa Darmasaba. Bagi peserta pelatihan, pesan yang paling relevan adalah bahwa seluruh capaian tersebut bertumpu pada keberanian mengambil keputusan sulit pada waktu yang tepat, bukan pada ketersediaan sumber daya yang berlimpah sejak awal.</p>
+    </div>
 
-    <div class="stat-row">
+    <div class="stat-row tiga">
       <div class="stat"><b>5.773</b><span>jiwa penduduk dalam 1.349 kepala keluarga</span><small>Paparan Perbekel, 2026</small></div>
       <div class="stat"><b>999,57 ha</b><span>luas wilayah, terdiri atas 849,57 ha perbukitan dan 150 ha pantai berpasir putih</span><small>Paparan Perbekel, 2026</small></div>
       <div class="stat"><b>0%</b><span>kemiskinan dan pengangguran sejak berstatus desa mandiri pada 2017</span><small>Paparan Perbekel, 2026</small></div>
@@ -744,8 +834,7 @@
   </section>
 
   <section id="keuangan">
-    <div class="sec-head"><span class="no">03</span><h2 class="serif">Posisi Keuangan Desa</h2></div>
-    <p class="lede">Data transparansi anggaran APBDesa 2026 bersumber dari Siskeudes yang dipublikasikan pada situs resmi Desa Kutuh, posisi realisasi per Juli 2026. Panjang batang menunjukkan realisasi terhadap anggaran, dan batang berwarna tembaga menandai pos yang realisasinya telah melampaui target. Persentase tertera pada setiap baris.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">03</span><h2 class="serif">Posisi Keuangan Desa</h2></div><p class="lede">Data transparansi anggaran APBDesa 2026 bersumber dari Siskeudes yang dipublikasikan pada situs resmi Desa Kutuh, posisi realisasi per Juli 2026. Panjang batang menunjukkan realisasi terhadap anggaran, dan batang berwarna tembaga menandai pos yang realisasinya telah melampaui target. Persentase tertera pada setiap baris.</p></div>
 
     <div class="stat-row">
       <div class="stat"><b>Rp6,06 M</b><span>realisasi pendapatan desa dari anggaran Rp20,68 miliar (29,29%)</span><small>Siskeudes, APBDesa 2026</small></div>
@@ -827,71 +916,95 @@
   </section>
 
   <section id="bmc-sec">
-    <div class="sec-head"><span class="no">04</span><h2 class="serif">Business Model Canvas BUMDes Manik Sedana</h2></div>
-    <p class="lede">Kanvas berikut memetakan model bisnis BUMDes Manik Sedana secara menyeluruh, disusun dari telaah Peraturan Desa Kutuh Nomor 12 Tahun 2021, publikasi ilmiah terkini, dan analisis kelompok. Klik setiap blok untuk membaca rinciannya.</p>
-
-    <div class="catatan" style="margin-top: 18px;"><b>Catatan revisi.</b> Kanvas pada bagian ini disusun sebelum kelompok memperoleh materi paparan Perbekel Kutuh. Berdasarkan paparan tersebut, pengelolaan daya tarik wisata Pantai Pandawa dan Gunung Payung berada pada BUMDA Desa Adat, bukan pada BUMDesa Manik Sedana yang menaungi unit pengelolaan sampah, Pancali SPA, serta barang dan jasa non pariwisata. Blok pendapatan, aktivitas, dan sumber daya di bawah ini masih memuat komponen pariwisata sehingga perlu dimutakhirkan agar sejalan dengan pembagian peran resmi kedua badan usaha.</div>
+    <div class="sec-top"><div class="sec-head"><span class="no">04</span><h2 class="serif">Business Model Canvas BUMDes Manik Sedana</h2></div><p class="lede">Kanvas berikut memetakan model bisnis BUMDesa Manik Sedana, disusun dari materi paparan Perbekel Kutuh, Peraturan Desa Kutuh Nomor 12 Tahun 2021, dan analisis kelompok. Cakupannya adalah tiga unit usaha non pariwisata yang menjadi mandat BUMDesa, yaitu pengangkutan sampah, Pancali SPA, serta barang dan jasa. Sektor pariwisata berada pada BUMDA Desa Adat sehingga tidak masuk kanvas ini. Klik setiap blok untuk membaca rinciannya.</p></div>
     <div class="bmc-wrap">
       <div class="bmc" role="tablist" aria-label="Sembilan blok Business Model Canvas">
         <button class="blok" id="mk" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 8</span><span class="blok-j">Mitra Kunci</span>
-          <span class="blok-hint">Desa adat, BUMDA, LPD, Pemkab Badung, mitra swasta</span>
+          <span class="blok-hint">Pemdes, BPD, Desa Adat, BUMDA, KSM TPST, TP-PKK</span>
         </button>
         <button class="blok" id="ak" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 7</span><span class="blok-j">Aktivitas Utama</span>
-          <span class="blok-hint">Destinasi wisata, energi, aset sewa, pemberdayaan</span>
+          <span class="blok-hint">Pengangkutan terpilah, ritel dan energi, layanan spa</span>
         </button>
         <button class="blok nilai" id="pn" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 2 · Inti</span><span class="blok-j">Proposisi Nilai</span>
-          <span class="blok-hint">Wisata berbasis adat, layanan publik terpadu, ekonomi inklusif warga</span>
+          <span class="blok-hint">Layanan dasar desa yang andal, terjangkau, dan dikerjakan warga Kutuh sendiri</span>
         </button>
         <button class="blok" id="hp" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 4</span><span class="blok-j">Hubungan Pelanggan</span>
-          <span class="blok-hint">Langganan, musyawarah, edukasi masyarakat</span>
+          <span class="blok-hint">Langganan bulanan, musyawarah, kanal pengaduan</span>
         </button>
         <button class="blok" id="sp" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 1</span><span class="blok-j">Segmen Pelanggan</span>
-          <span class="blok-hint">Wisatawan, warga, pelaku usaha, investor, instansi</span>
+          <span class="blok-hint">Rumah tangga warga, akomodasi wisata, pemerintah desa</span>
         </button>
         <button class="blok" id="sd" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 6</span><span class="blok-j">Sumber Daya Utama</span>
-          <span class="blok-hint">Destinasi alam, SDM lokal, aset produktif, legalitas</span>
+          <span class="blok-hint">Penyertaan modal, armada, 27 pekerja, badan hukum</span>
         </button>
         <button class="blok" id="sl" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 3</span><span class="blok-j">Saluran</span>
-          <span class="blok-hint">Loket destinasi, situs desa, e-tourism, media sosial</span>
+          <span class="blok-hint">Kantor BUMDesa, gerai fisik, banjar, media desa</span>
         </button>
         <button class="blok" id="bi" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 9</span><span class="blok-j">Struktur Biaya</span>
-          <span class="blok-hint">SDM, operasional unit usaha, pemeliharaan destinasi, pajak</span>
+          <span class="blok-hint">Upah 27 pekerja, operasional armada, persediaan, pajak</span>
         </button>
         <button class="blok" id="pd" role="tab" aria-selected="false" aria-controls="panel-bmc">
           <span class="blok-k">Blok 5</span><span class="blok-j">Sumber Pendapatan</span>
-          <span class="blok-hint">Tiket wisata, LPG dan BBM, sewa aset, kemitraan</span>
+          <span class="blok-hint">Iuran sampah, penjualan ritel dan LPG, jasa spa</span>
         </button>
       </div>
       <div class="bmc-detail" id="panel-bmc" role="tabpanel" aria-live="polite"></div>
     </div>
 
     <div class="sorotan">
-      <h3 class="serif">Sorotan: <span>Pariwisata Berbasis Desa Adat</span></h3>
-      <p>Kekuatan utama model bisnis BUMDes Manik Sedana terletak pada pengelolaan destinasi wisata berbasis desa adat. Pantai Pandawa dan Pantai Gunung Payung dikelola dengan melibatkan masyarakat lokal dalam perencanaan, operasional, dan pelestarian budaya, sehingga omset wisata sekitar Rp20 miliar per tahun berputar kembali ke dalam desa. Pendekatan ini menyeimbangkan misi komersial dan pelayanan publik, sejalan dengan filosofi Tri Hita Karana yang menempatkan harmoni manusia, budaya, dan alam sebagai landasan setiap keputusan usaha.</p>
+      <h3 class="serif">Sorotan: <span>Pertumbuhan Laba BUMDesa Manik Sedana</span></h3>
+      <p>Dalam empat tahun laba BUMDesa tumbuh lebih dari sebelas kali lipat, dari Rp88,46 juta pada 2021 menjadi Rp983,28 juta pada 2024. Capaian 2025 sedikit terkoreksi ke Rp884,85 juta, dan justru koreksi inilah yang menarik didalami pada bagian diagnosa. Sebagai pembanding, BUMDA yang menggarap sektor pariwisata membukukan laba Rp15,01 miliar pada 2025 dengan 121 tenaga kerja, sementara BUMDesa mempekerjakan 27 orang. Perbedaan skala ini wajar mengingat mandat keduanya berbeda, namun menegaskan bahwa ruang tumbuh BUMDesa masih terbuka lebar pada layanan non pariwisata.</p>
+      <div class="keu-group" style="margin-top: 20px; padding: 0; border: 0; background: none;">
+        <div class="keu-row">
+          <div class="lbl">2021<small>Rp88.463.638</small></div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:9%"></div></div>
+          <div class="pct">9%</div>
+        </div>
+        <div class="keu-row">
+          <div class="lbl">2022<small>Rp305.307.331</small></div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:31.1%"></div></div>
+          <div class="pct">31%</div>
+        </div>
+        <div class="keu-row">
+          <div class="lbl">2023<small>Rp562.597.912</small></div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:57.2%"></div></div>
+          <div class="pct">57%</div>
+        </div>
+        <div class="keu-row">
+          <div class="lbl">2024<small>Rp983.282.080</small></div>
+          <div class="bar-wrap"><div class="bar-fill lebih" style="width:100%"></div></div>
+          <div class="pct lebih">100%</div>
+        </div>
+        <div class="keu-row">
+          <div class="lbl">2025<small>Rp884.845.450</small></div>
+          <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+          <div class="pct">90%</div>
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px;">Panjang batang menunjukkan laba relatif terhadap capaian tertinggi pada 2024, yang ditandai warna tembaga. Sumber: paparan Perbekel Kutuh, 27 Juli 2026.</p>
     </div>
   </section>
 
   <section id="lesson">
-    <div class="sec-head"><span class="no">05</span><h2 class="serif">Lesson Learnt</h2></div>
-    <p class="lede">Enam pelajaran utama yang relevan direplikasi oleh organisasi sektor publik, dirumuskan dari praktik terbaik lokus.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">05</span><h2 class="serif">Lesson Learnt</h2></div><p class="lede">Enam pelajaran utama yang relevan direplikasi oleh organisasi sektor publik, dirumuskan dari praktik terbaik lokus.</p></div>
     <div class="lesson-grid">
       <div class="lesson">
         <h3>Hambatan dibaca ulang menjadi aset</h3>
-        <p>Tebing kapur yang selama puluhan tahun mengurung desa dari pantainya justru dipotong dan dijadikan gerbang masuk kawasan wisata. Modal awal Rp1,8 miliar dari dana desa kini menopang omset wisata sekitar Rp20 miliar per tahun. Yang menggerakkan bukan tambahan anggaran, melainkan keberanian membaca ulang apa yang selama ini dianggap kendala.</p>
+        <p>Tebing kapur yang selama puluhan tahun mengurung desa dari pantainya justru dipotong dan dijadikan gerbang masuk kawasan wisata, semula hanya untuk mempermudah upacara adat ke Pantai Melasti. Dari pembukaan akses itulah wisatawan mulai berdatangan dan desa memperoleh mesin ekonomi baru ketika rumput laut runtuh. Yang menggerakkan bukan tambahan anggaran, melainkan keberanian membaca ulang apa yang selama ini dianggap kendala.</p>
         <div class="transfer"><span class="k">Untuk diterapkan</span>Inventarisasi aset dan kapasitas yang menganggur sebelum mengusulkan belanja modal baru.</div>
       </div>
       <div class="lesson">
-        <h3>Pemisahan peran meredam benturan nilai</h3>
-        <p>BUMDes memegang fungsi komersial, sedangkan BUMDA menjaga nilai adat dan modal sosial. Pemisahan ini mencegah logika bisnis menggerus legitimasi budaya, sekaligus mencegah urusan adat menyandera keputusan usaha. Keduanya bersinergi justru karena mandatnya tidak dicampur.</p>
-        <div class="transfer"><span class="k">Untuk diterapkan</span>Pisahkan unit pengejar target dari unit penjaga nilai dan kepatuhan, jangan ditumpuk pada satu pejabat.</div>
+        <h3>Pasar dibagi sebelum konflik muncul</h3>
+        <p>BUMDA yang lahir dari Desa Adat pada 2014 memegang seluruh sektor pariwisata, sedangkan BUMDesa yang berdiri 2016 menggarap sektor non pariwisata. Pembagian pasar ini ditetapkan di awal, bukan setelah keduanya berebut lahan usaha, sehingga dua badan usaha di satu desa berjalan tanpa tumpang tindih.</p>
+        <div class="transfer"><span class="k">Untuk diterapkan</span>Tetapkan batas kewenangan antarunit di dokumen pendirian, jangan menunggu sengketa untuk kemudian dirapikan.</div>
       </div>
       <div class="lesson">
         <h3>Formalisasi diambil lebih awal dari kewajiban</h3>
@@ -900,7 +1013,7 @@
       </div>
       <div class="lesson">
         <h3>Pemberdayaan dikunci di hulu keputusan</h3>
-        <p>Setiap rencana unit usaha baru lebih dulu diuji kecocokannya dengan warga, dan pekerjanya wajib berasal dari Desa Kutuh. Karena syarat ini melekat pada keputusan pembukaan usaha dan bukan pada imbauan, setiap pertumbuhan usaha otomatis menjadi pertumbuhan lapangan kerja. Hasilnya lebih dari 70 tenaga kerja lokal terserap sepanjang 2020 sampai 2024.</p>
+        <p>Setiap rencana unit usaha baru lebih dulu diuji kecocokannya dengan warga, dan pekerjanya wajib berasal dari Desa Kutuh. Karena syarat ini melekat pada keputusan pembukaan usaha dan bukan pada imbauan, setiap pertumbuhan usaha otomatis menjadi pertumbuhan lapangan kerja. Hasilnya, dua badan usaha desa kini menyerap 148 tenaga kerja lokal, terdiri atas 121 orang di BUMDA dan 27 orang di BUMDesa.</p>
         <div class="transfer"><span class="k">Untuk diterapkan</span>Letakkan syarat pemberdayaan pada kriteria kelayakan program di tahap perencanaan, bukan pada laporan akhir.</div>
       </div>
       <div class="lesson">
@@ -917,8 +1030,7 @@
   </section>
 
   <section id="diagnosa">
-    <div class="sec-head"><span class="no">06</span><h2 class="serif">Diagnosa dan Ide Penyelesaian</h2></div>
-    <p class="lede">Sesuai Panduan Wawancara Studi Lapangan, bagian ini memetakan kesenjangan kinerja lokus, selisih antara kondisi saat ini dan kondisi yang diharapkan, lalu menawarkan solusi kreatif yang realistis. Pemetaan berikut merupakan draft pra-lapangan yang disusun dari telaah literatur dan akan divalidasi dengan data wawancara.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">06</span><h2 class="serif">Diagnosa dan Ide Penyelesaian</h2></div><p class="lede">Sesuai Panduan Wawancara Studi Lapangan, bagian ini memetakan kesenjangan kinerja lokus, selisih antara kondisi saat ini dan kondisi yang diharapkan, lalu menawarkan solusi kreatif yang realistis. Pemetaan berikut merupakan draft pra-lapangan yang disusun dari telaah literatur dan akan divalidasi dengan data wawancara.</p></div>
 
     <div class="tbl-wrap">
       <table>
@@ -929,7 +1041,8 @@
         <tbody>
           <tr><td class="no">1</td><td>Pendapatan desa besar, tetapi bukti peningkatan kesejahteraan per kapita warga belum terdokumentasi eksplisit.</td><td>Dampak ekonomi terukur dan terdistribusi merata hingga level rumah tangga.</td><td>Belum ada sistem pengukuran dampak kesejahteraan yang sistematis dan terpublikasi.</td><td>Nugroho dkk. (2025)</td></tr>
           <tr><td class="no">2</td><td>Toko grosir milik BUMDes kurang berkembang, kalah bersaing dengan ritel modern berjejaring.</td><td>Seluruh unit usaha sehat dan berdaya saing.</td><td>Model bisnis unit grosir belum terdiferensiasi dari ritel modern.</td><td>Nugroho dkk. (2025)</td></tr>
-          <tr><td class="no">3</td><td>Akses air bersih terbatas karena topografi bukit kapur; baru tersedia empat titik sumber air.</td><td>Layanan air bersih andal bagi warga dan penopang industri wisata.</td><td>Infrastruktur dasar belum sebanding dengan laju pertumbuhan ekonomi kawasan.</td><td>Nugroho dkk. (2025)</td></tr>
+          <tr><td class="no">3</td><td>Laba BUMDesa terkoreksi dari Rp983,28 juta pada 2024 menjadi Rp884,85 juta pada 2025, setelah empat tahun tumbuh berturut-turut.</td><td>Pertumbuhan laba yang berkelanjutan seiring bertambahnya penyertaan modal.</td><td>Belum teridentifikasi unit penyebab koreksi karena kinerja per unit belum dipublikasikan terpisah.</td><td>Paparan Perbekel (2026)</td></tr>
+          <tr><td class="no">6</td><td>Layanan pengangkutan sampah menjangkau 1.019 dari 1.319 kepala keluarga.</td><td>Cakupan layanan penuh bagi seluruh rumah tangga desa.</td><td>Sekitar 300 rumah tangga belum berlangganan, penyebabnya belum dipetakan.</td><td>Paparan Perbekel (2026)</td></tr>
           <tr><td class="no">4</td><td>Keberhasilan desa melekat kuat pada figur kepala desa dan pimpinan BUMDes yang visioner.</td><td>Kinerja organisasi berkelanjutan lintas pergantian kepemimpinan.</td><td>Sistem kaderisasi dan standardisasi tata kelola belum sepenuhnya terlembaga.</td><td>Nugroho dkk. (2025); analisis kelompok</td></tr>
           <tr><td class="no">5</td><td>Data kinerja usaha belum seluruhnya terpublikasi dan belum mendukung pengambilan keputusan real time.</td><td>Data kinerja terintegrasi, real time, dan transparan bagi publik.</td><td>Digitalisasi pelaporan antar unit usaha masih parsial.</td><td>Nugroho dkk. (2025); analisis kelompok</td></tr>
         </tbody>
@@ -945,7 +1058,8 @@
         <tbody>
           <tr><td class="no">1</td><td>Dampak kesejahteraan belum terukur</td><td>Dashboard Kesejahteraan Warga: survei berkala pendapatan rumah tangga terintegrasi data BUMDes dan APBDes, ditampilkan di situs desa.</td><td>Bukti dampak untuk kebijakan, transparansi, dan replikasi nasional.</td><td><span class="pill t">Tinggi</span></td></tr>
           <tr><td class="no">2</td><td>Unit grosir kalah bersaing</td><td>Reposisi grosir menjadi hub logistik UMKM dan pemasok kebutuhan hotel serta villa dengan sistem pemesanan digital.</td><td>Unit kembali produktif dan menyerap produk warga.</td><td><span class="pill t">Tinggi</span></td></tr>
-          <tr><td class="no">3</td><td>Keterbatasan air bersih</td><td>Kemitraan SPAM dan pemanenan air hujan pada fasilitas publik dan destinasi wisata milik BUMDes.</td><td>Ketahanan air bagi warga dan industri wisata.</td><td><span class="pill s">Sedang</span></td></tr>
+          <tr><td class="no">3</td><td>Laba 2025 terkoreksi</td><td>Laporan laba rugi per unit usaha yang dipublikasikan triwulanan, sehingga unit penarik dan penekan laba terbaca sejak dini.</td><td>Koreksi kinerja terdeteksi lebih cepat dan keputusan berbasis data.</td><td><span class="pill t">Tinggi</span></td></tr>
+          <tr><td class="no">6</td><td>Cakupan layanan sampah belum penuh</td><td>Pemetaan 300 rumah tangga yang belum berlangganan melalui kepala wilayah, disertai skema tarif bertahap bagi rumah tangga berpendapatan rendah.</td><td>Pendapatan unit naik dan risiko sampah liar menurun.</td><td><span class="pill t">Tinggi</span></td></tr>
           <tr><td class="no">4</td><td>Ketergantungan pada figur pemimpin</td><td>Program kaderisasi manajer BUMDes bersertifikat serta SOP korporasi desa yang terdokumentasi dan diaudit berkala.</td><td>Keberlanjutan kinerja lintas suksesi kepemimpinan.</td><td><span class="pill t">Tinggi</span></td></tr>
           <tr><td class="no">5</td><td>Pelaporan belum real time</td><td>Integrasi sistem informasi keuangan seluruh unit usaha menuju smart village dengan laporan publik triwulanan.</td><td>Keputusan berbasis data dan penguatan akuntabilitas.</td><td><span class="pill t">Tinggi</span></td></tr>
         </tbody>
@@ -956,8 +1070,7 @@
   </section>
 
   <section id="dokumentasi">
-    <div class="sec-head"><span class="no">07</span><h2 class="serif">Dokumentasi Kunjungan</h2></div>
-    <p class="lede">Rekaman visual kunjungan lapangan ke BUMDes Manik Sedana Desa Kutuh pada 27 Juli 2026. Klik gambar untuk melihat ukuran penuh.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">07</span><h2 class="serif">Dokumentasi Kunjungan</h2></div><p class="lede">Rekaman visual kunjungan lapangan ke BUMDes Manik Sedana Desa Kutuh pada 27 Juli 2026. Klik gambar untuk melihat ukuran penuh.</p></div>
     <div class="galeri" id="galeri" hidden></div>
     <div class="galeri-kosong" id="galeri-kosong">
       <b>Belum ada foto dokumentasi yang dimuat.</b> Foto ditempatkan pada folder <code>dokumentasi/</code>, lalu datanya didaftarkan pada berkas <code>dokumentasi/daftar-foto.json</code>. Setiap foto memuat judul, keterangan, waktu, lokasi, dan nama pengambil gambar. Galeri akan tampil otomatis begitu daftar terisi, tanpa perlu mengubah halaman ini.
@@ -965,8 +1078,7 @@
   </section>
 
   <section id="tim">
-    <div class="sec-head"><span class="no">08</span><h2 class="serif">Kelompok II</h2></div>
-    <p class="lede">Ketua kelompok: <b>Rully Devriantoro</b>. Pembagian peran penyusunan laporan sebagai berikut.</p>
+    <div class="sec-top"><div class="sec-head"><span class="no">08</span><h2 class="serif">Kelompok II</h2></div><p class="lede">Ketua kelompok: <b>Rully Devriantoro</b>. Pembagian peran penyusunan laporan sebagai berikut.</p></div>
     <div class="tim-grid">
       <div class="tim"><div class="peran">Profil Lokus</div><ul><li>Khusnul Arifin</li><li>Muhammad Ali Shodiqin</li></ul></div>
       <div class="tim bmc-tim"><div class="peran">Penyusun BMC</div><ul><li>Donny Maha Putra</li><li>Agus Hery Winarso</li><li>Muslim</li><li>Didit Prayudi Sidharta</li></ul></div>
@@ -983,7 +1095,7 @@
   <div class="poleng" style="max-width: 220px; margin: 0 auto 22px;" role="presentation"></div>
   Laporan Studi Lapangan Kinerja Organisasi · Pelatihan Kepemimpinan Administrator Angkatan XVIII · Tahun Anggaran 2026<br>
   Kelompok II · Lokus BUMDes Manik Sedana Desa Kutuh, Kecamatan Kuta Selatan, Kabupaten Badung, Bali · Kunjungan 27 Juli 2026<br>
-  <span style="font-size: 0.72rem;">Sumber data: situs resmi Desa Kutuh (Siskeudes, APBDesa 2026), Peraturan Desa Kutuh Nomor 12 Tahun 2021, dan Nugroho dkk. (2025) dalam Jurnal Pendidikan Ekonomi Undiksha 17(3). Foto Pantai Pandawa dari Wikimedia Commons, lisensi CC BY-SA, karya Riska Diamitri, Jenhan Putra, Alharomain354, dan Chaecilly.</span>
+  <span style="font-size: 0.72rem;">Sumber data: materi paparan Perbekel Kutuh (27 Juli 2026), situs resmi Desa Kutuh (Siskeudes, APBDesa 2026), Peraturan Desa Kutuh Nomor 12 Tahun 2021, dan Nugroho dkk. (2025) dalam Jurnal Pendidikan Ekonomi Undiksha 17(3). Foto lanskap Pantai Pandawa dari Wikimedia Commons, lisensi CC BY-SA, karya Riska Diamitri, Jenhan Putra, Alharomain354, dan Chaecilly.</span>
 </footer>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau foto dokumentasi">
@@ -995,103 +1107,106 @@
   const DETAIL = {
     sp: {
       judul: "Blok 1 · Segmen Pelanggan",
-      sumber: "Sumber: Nugroho dkk. (2025); Perdes Kutuh 12/2021; analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); Perdes Kutuh 12/2021; analisis kelompok",
       isi: [
-        "Wisatawan domestik dan mancanegara pengunjung Pantai Pandawa dan Pantai Gunung Payung.",
-        "Warga Desa Kutuh sebagai pelanggan pangkalan LPG dan layanan publik desa.",
-        "Pelaku usaha lokal, hotel, villa, dan homestay yang membutuhkan pasokan barang dan energi.",
-        "Investor dan penyewa aset: papan reklame, villa wisata, gedung serbaguna, dan properti kawasan tebing.",
-        "Instansi pemerintah dan lembaga pendidikan melalui program edukatif Kunjungan Desa (benchmarking desa mandiri)."
+        "Rumah tangga warga Desa Kutuh: 1.019 pelanggan layanan pengangkutan sampah dari total 1.319 kepala keluarga, sehingga masih tersisa ruang pasar sekitar 300 rumah tangga.",
+        "Akomodasi wisata milik warga berupa villa, hotel, dan homestay yang membutuhkan layanan kebersihan rutin serta pasokan kebutuhan operasional.",
+        "Warga dan wisatawan pengguna layanan Pancali SPA di kawasan destinasi.",
+        "Pemerintah desa dan lembaga desa sebagai pengguna jasa pengadaan barang dan jasa non pariwisata.",
+        "Pelaku usaha mikro dan warung di dalam desa yang berbelanja pada unit toko grosir dan pangkalan gas."
       ]
     },
     pn: {
       judul: "Blok 2 · Proposisi Nilai",
-      sumber: "Sumber: Nugroho dkk. (2025); Yudartha & Agung (2024); analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); analisis kelompok",
       isi: [
-        "Pengalaman wisata pantai otentik berbasis desa adat dan budaya Bali, dikelola langsung oleh masyarakat dengan filosofi Tri Hita Karana.",
-        "Layanan publik desa terpadu: ketersediaan LPG dan rencana BBM Pertashop dengan harga terjangkau bagi warga.",
-        "Ekonomi inklusif: seluruh unit usaha wajib mempekerjakan warga Kutuh sehingga nilai ekonomi berputar di dalam desa.",
-        "Keberlanjutan lingkungan: kebersihan dan penataan kawasan destinasi terjaga sebagai bagian dari daya tarik wisata.",
-        "Kredibilitas kelembagaan: badan hukum resmi dan status PKP menjamin kepastian bagi mitra dan investor."
+        "Layanan dasar desa yang andal: pengangkutan sampah terjadwal dan terpilah yang terhubung langsung dengan pengolahan di TPST Tebo Kauh, sehingga warga memperoleh kepastian layanan.",
+        "Ketersediaan kebutuhan pokok dan LPG di dalam desa dengan harga terjangkau, tanpa warga harus keluar wilayah.",
+        "Layanan spa berbasis kearifan lokal yang dikelola dan dikerjakan oleh warga sendiri.",
+        "Ekonomi inklusif: seluruh pekerja berasal dari warga Kutuh sehingga nilai ekonomi berputar di dalam desa.",
+        "Kepastian bermitra dengan badan usaha berbadan hukum melalui Perdes Nomor 12 Tahun 2021 dan berstatus Pengusaha Kena Pajak sejak 2017.",
+        "Pembagian pasar yang jelas dengan BUMDA membuat BUMDesa fokus pada layanan non pariwisata tanpa berebut lahan usaha."
       ]
     },
     sl: {
       judul: "Blok 3 · Saluran",
-      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); analisis kelompok",
       isi: [
-        "Loket tiket dan gerai layanan langsung di destinasi Pantai Pandawa dan Gunung Payung.",
-        "Situs resmi desa wisata dan platform e-tourism untuk menjangkau wisatawan global.",
-        "Media sosial desa dan pemberitaan penghargaan sebagai kanal promosi organik.",
-        "Kerja sama biro perjalanan dan pihak ketiga pengelola paket wisata.",
-        "Forum musyawarah desa dan banjar sebagai kanal sosialisasi layanan kepada warga."
+        "Pendaftaran dan penanganan layanan langsung di kantor BUMDesa Manik Sedana yang diresmikan pada 2025.",
+        "Gerai fisik unit usaha: toko grosir dan eceran serta pangkalan gas di dalam wilayah desa.",
+        "Kepala wilayah dan forum banjar sebagai kanal penjangkauan pelanggan baru layanan persampahan.",
+        "Situs resmi desa dan media sosial desa di Instagram, Facebook, serta YouTube.",
+        "Program wisata edukasi dan kunjungan desa yang memperkenalkan model usaha kepada instansi luar."
       ]
     },
     hp: {
       judul: "Blok 4 · Hubungan Pelanggan",
-      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); analisis kelompok",
       isi: [
-        "Hubungan berlangganan jangka panjang untuk layanan energi rumah tangga melalui pangkalan gas desa.",
-        "Keterlibatan komunitas: warga adalah pelanggan sekaligus pemilik dan pekerja, dipertemukan dalam forum terbuka pelaporan kinerja.",
-        "Pelayanan responsif atas keluhan fasilitas, dari jalan berlubang sampai jaringan listrik, yang ditangani cepat oleh desa.",
-        "Edukasi dan pembinaan kelompok sadar wisata (Pokdarwis) bagi warga yang terlibat di kawasan destinasi.",
-        "Relasi kemitraan formal dengan penyewa aset dan investor melalui kontrak."
+        "Hubungan berlangganan bulanan untuk layanan pengangkutan sampah dengan jadwal tetap.",
+        "Warga berkedudukan sebagai pemilik sekaligus pelanggan dan pekerja, dipertemukan melalui musyawarah desa dan laporan kinerja pada forum terbuka.",
+        "Kanal pengaduan terhubung dengan SP4N LAPOR dan Kontak Bupati; sembilan belas pengaduan sepanjang 2025 sampai 2026 seluruhnya telah ditindaklanjuti.",
+        "Edukasi pemilahan sampah rumah tangga bersama Satgas Sampah dan TP-PKK melalui program Plastic Exchange.",
+        "Indeks Kepuasan Masyarakat 2025 tercatat 87,15 dengan kategori baik sebagai umpan balik terukur."
       ]
     },
     pd: {
       judul: "Blok 5 · Sumber Pendapatan",
-      sumber: "Sumber: Nugroho dkk. (2025); APBDes Kutuh (2025)",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); Siskeudes APBDesa 2026",
       isi: [
-        "Tiket masuk destinasi wisata dengan omset sekitar Rp20 miliar per tahun, ditambah parkir dan jasa layanan wisata.",
-        "Hasil Usaha Desa pada APBDesa 2026 terealisasi Rp442 juta, melampaui target tahunan (110,36%).",
-        "Pangkalan LPG dan rencana Pertashop kapasitas 3.000 liter dengan proyeksi laba bersih Rp120 juta per tahun.",
-        "Sewa aset produktif: papan reklame, villa wisata, gedung serbaguna, spa, dan properti kawasan tebing.",
-        "Program Kunjungan Desa berbayar serta kemitraan pengelolaan wisata dengan pihak ketiga.",
-        "Kontribusi ke desa: lebih dari 65 persen Pendapatan Asli Desa bersumber dari BUMDes."
+        "Iuran layanan pengangkutan sampah dari 1.019 pelanggan rumah tangga dan akomodasi wisata.",
+        "Penjualan unit barang dan jasa non pariwisata melalui toko grosir dan eceran serta pangkalan gas.",
+        "Jasa layanan Pancali SPA.",
+        "Laba bersih tumbuh dari Rp88,46 juta pada 2021 menjadi Rp983,28 juta pada 2024, lalu Rp884,85 juta pada 2025.",
+        "Kontribusi ke desa melalui pos Hasil Usaha Desa yang pada APBDesa 2026 telah terealisasi Rp442,44 juta atau 110,36 persen dari target."
       ]
     },
     sd: {
       judul: "Blok 6 · Sumber Daya Utama",
-      sumber: "Sumber: Nugroho dkk. (2025); Perdes Kutuh 12/2021",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); Perdes Kutuh 12/2021",
       isi: [
-        "Aset destinasi alam: Pantai Pandawa, Pantai Gunung Payung, dan lahan produktif kawasan tebing kapur.",
-        "SDM lokal: lebih dari 70 tenaga kerja aktif dari warga Kutuh dengan dukungan pelatihan berkala.",
-        "Aset operasional: fasilitas destinasi, gedung serbaguna, pangkalan gas, dan sarana penunjang unit usaha.",
-        "Legalitas: badan hukum BUMDes Manik Sedana (Perdes 12/2021) dan status Pengusaha Kena Pajak.",
-        "Modal sosial dan kelembagaan adat: sinergi dengan BUMDA dan pembiayaan LPD berbunga rendah."
+        "Penyertaan modal desa senilai total Rp2,13 miliar: Rp216,02 juta dari ADD (2016), Rp775,09 juta dari PBH (2017), Rp848,33 juta dari Dana Desa (2018), dan Rp288,94 juta untuk ketahanan pangan (2025).",
+        "Dua puluh tujuh tenaga kerja yang seluruhnya berasal dari warga Desa Kutuh.",
+        "Armada pengangkut sampah beserta sarana operasional unit toko grosir, pangkalan gas, dan Pancali SPA.",
+        "Legalitas kelembagaan: badan hukum melalui Perdes Nomor 12 Tahun 2021 dan status Pengusaha Kena Pajak sejak 2017, yang pertama di Bali.",
+        "Kantor operasional BUMDesa yang diresmikan pejabat pemerintah pusat pada 2025.",
+        "Modal sosial berupa dukungan Pemerintah Desa, BPD, dan Desa Adat Kutuh."
       ]
     },
     ak: {
       judul: "Blok 7 · Aktivitas Utama",
-      sumber: "Sumber: Nugroho dkk. (2025); analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); analisis kelompok",
       isi: [
-        "Pengelolaan destinasi wisata: tiket, parkir, kebersihan, keamanan, dan penataan pedagang pantai.",
-        "Distribusi energi: operasional pangkalan LPG dan penyiapan Pertashop.",
-        "Pengelolaan aset sewa dan kemitraan investasi properti serta reklame.",
-        "Pemberdayaan: pelatihan kerja, pengembangan UMKM, dan promosi industri kreatif lokal.",
-        "Pelaporan kinerja terstruktur per unit usaha kepada pemerintah desa dan forum terbuka warga."
+        "Pengangkutan sampah terpilah secara terjadwal dari rumah tangga dan akomodasi wisata menuju TPST Tebo Kauh, dengan organik dan anorganik tidak dicampur.",
+        "Operasi ritel harian pada toko grosir dan eceran serta penyaluran LPG melalui pangkalan gas desa.",
+        "Penyelenggaraan layanan Pancali SPA.",
+        "Pengadaan barang dan jasa non pariwisata bagi kebutuhan pemerintah desa dan lembaga desa.",
+        "Pembukuan terpisah per unit usaha yang direkap manajemen dan dilaporkan kepada pemerintah desa serta warga melalui forum terbuka.",
+        "Perluasan jangkauan pelanggan layanan persampahan menuju cakupan penuh 1.319 kepala keluarga."
       ]
     },
     mk: {
       judul: "Blok 8 · Mitra Kunci",
-      sumber: "Sumber: Yudartha & Agung (2024); Perdes Kutuh 12/2021",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); Perdes Kutuh 12/2021",
       isi: [
-        "Pemerintah Desa Kutuh dan BPD sebagai pemilik dan pengawas kebijakan.",
-        "Desa Adat Kutuh dan BUMDA: pembagian peran komersial dan penjaga nilai adat.",
-        "Lembaga Perkreditan Desa (LPD) untuk akses pembiayaan warga dan usaha.",
-        "Pemerintah Kabupaten Badung dan DPMD sebagai pembina serta pemberi dukungan program.",
-        "Mitra swasta: investor properti, biro perjalanan, dan platform e-tourism.",
-        "Otoritas pajak dan lembaga sertifikasi untuk kepatuhan sebagai Pengusaha Kena Pajak."
+        "Pemerintah Desa Kutuh sebagai pemilik dan penyerta modal, serta BPD sebagai pengawas kebijakan.",
+        "Desa Adat Kutuh dan BUMDA Bhaga Utsaha Manunggal Desa Adat, dengan pembagian pasar yang tegas: BUMDA menangani sektor pariwisata, BUMDesa menangani sektor non pariwisata.",
+        "Kelompok Swadaya Masyarakat pengelola TPST Tebo Kauh sebagai mitra hilir pengolahan sampah.",
+        "TP-PKK Desa Kutuh yang menjalankan bank sampah Plastic Exchange sejak 2022.",
+        "Pemasok barang dagangan dan Pertamina untuk penyaluran LPG.",
+        "Pemerintah Kabupaten Badung melalui DPMD sebagai pembina, serta otoritas pajak untuk kepatuhan sebagai Pengusaha Kena Pajak."
       ]
     },
     bi: {
       judul: "Blok 9 · Struktur Biaya",
-      sumber: "Sumber: Nugroho dkk. (2025); APBDes Kutuh (2025); analisis kelompok",
+      sumber: "Sumber: Paparan Perbekel Kutuh (2026); analisis kelompok",
       isi: [
-        "Belanja pegawai: gaji dan insentif tenaga kerja lokal seluruh unit usaha.",
-        "Operasional unit usaha: logistik, utilitas, dan pemeliharaan sarana kerja.",
-        "Investasi dan pemeliharaan destinasi wisata serta fasilitas publik pendukung.",
+        "Upah dan insentif dua puluh tujuh tenaga kerja warga Kutuh.",
+        "Operasional armada pengangkut: bahan bakar, pemeliharaan kendaraan, dan perlengkapan kerja.",
+        "Pengadaan persediaan barang dagangan untuk toko grosir serta stok LPG pangkalan gas.",
+        "Pemeliharaan sarana unit usaha dan kantor operasional.",
         "Kewajiban perpajakan sebagai Pengusaha Kena Pajak dan biaya kepatuhan badan hukum.",
-        "Reinvestasi sosial terlembaga: alokasi 5 persen laba untuk kegiatan sosial dan pendidikan warga."
+        "Reinvestasi laba untuk pengembangan unit usaha serta setoran kontribusi kepada Pendapatan Asli Desa."
       ]
     }
   };
