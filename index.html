@@ -189,6 +189,47 @@
   .tombol-tema svg { width: 15px; height: 15px; flex: none; color: var(--tembaga); }
   .sidebar .tombol-tema { width: 100%; justify-content: center; margin-top: 14px; }
 
+  /* Menu unduh berkas laporan pada sidebar */
+  .sidebar .unduh-sisi { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .sidebar .unduh-sisi .k {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 9px;
+  }
+  .sidebar .unduh-sisi a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 9px;
+    align-items: center;
+    padding: 9px 11px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+  .sidebar .unduh-sisi a:hover { border-color: var(--tembaga); transform: translateX(2px); }
+  .sidebar .unduh-sisi a:focus-visible { outline: 2px solid var(--grafit); outline-offset: 2px; }
+  .sidebar .unduh-sisi .tipe {
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 3px 6px;
+    border-radius: 4px;
+    background: var(--grafit);
+    color: var(--surface);
+  }
+  .sidebar .unduh-sisi a.pdf .tipe { background: var(--tembaga); }
+  .sidebar .unduh-sisi .rinci { display: block; font-weight: 400; font-size: 0.66rem; color: var(--ink-soft); margin-top: 1px; }
+
   /* Indikator progres baca */
   .progres {
     position: fixed;
@@ -805,6 +846,8 @@
   }
   .berkas-laporan h3 { margin: 0 0 4px; font-size: 1.05rem; }
   .berkas-laporan p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 16px; }
+  /* Sidebar sudah memuat menu unduh, jadi blok ini hanya tampil saat sidebar tersembunyi */
+  @media (min-width: 1120px) { .berkas-laporan { display: none; } }
 
   .galeri {
     display: grid;
@@ -983,6 +1026,18 @@
     <div class="maju-teks" id="maju-teks">0% terbaca</div>
   </div>
   <button class="tombol-tema" type="button" aria-label="Ganti mode tampilan"></button>
+
+  <div class="unduh-sisi">
+    <span class="k">Unduh Laporan</span>
+    <a href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.docx" download>
+      <span class="tipe">DOC</span>
+      <span>Versi Word<span class="rinci">2,2 MB &middot; dapat disunting</span></span>
+    </a>
+    <a class="pdf" href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.pdf" download>
+      <span class="tipe">PDF</span>
+      <span>Versi PDF<span class="rinci">1,8 MB &middot; siap cetak</span></span>
+    </a>
+  </div>
 </aside>
 
 <main>
@@ -1029,18 +1084,18 @@
 
     <div class="berkas-laporan">
       <h3 class="serif">Unduh laporan lengkap</h3>
-      <p>Laporan Studi Lapangan Kelompok II versi dokumen resmi, 21 halaman, memuat halaman judul, lembar pengesahan, daftar anggota, dokumentasi kunjungan, profil lokus, inovasi lokus, lesson learnt, diagnosa dan ide penyelesaian, serta kerangka laporan individu.</p>
+      <p>Laporan Studi Lapangan Kelompok II versi dokumen resmi, memuat halaman judul, lembar pengesahan, daftar anggota, dokumentasi kunjungan, profil lokus, inovasi lokus, lesson learnt, diagnosa dan ide penyelesaian, serta kerangka laporan individu.</p>
       <div class="unduh-grup">
         <a class="unduh" href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.docx" download>
           <span class="ikon" aria-hidden="true">&#8681;</span>
           <span>Unduh versi Word
-            <span class="rinci">DOCX, 1,5 MB &middot; siap disunting dan dicetak</span>
+            <span class="rinci">DOCX &middot; siap disunting dan dicetak</span>
           </span>
         </a>
         <a class="unduh pdf" href="laporan/Laporan-Studi-Lapangan-Kelompok-II-BUMDesa-Manik-Sedana-Desa-Kutuh.pdf" download>
           <span class="ikon" aria-hidden="true">&#8681;</span>
           <span>Unduh versi PDF
-            <span class="rinci">PDF, 1,1 MB &middot; tata letak terkunci, siap diserahkan</span>
+            <span class="rinci">PDF &middot; tata letak terkunci, siap diserahkan</span>
           </span>
         </a>
       </div>
